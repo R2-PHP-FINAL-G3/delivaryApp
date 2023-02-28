@@ -1,0 +1,36 @@
+nav {
+
+
+  .out {
+    color: var(--btn-color-danger);
+    border: 1px solid var(--btn-color-danger);
+
+    &:hover {
+      background-color: var(--btn-color-danger);
+    }
+  }
+  .profile{
+
+      border: 1px solid var(--btn-color);
+      color: var(--btn-color);
+      padding: .5rem;
+      border-radius: 10px;
+
+
+    &:hover {
+      background-color: var(--btn-color);
+      color: white;
+    }
+
+  }
+  .ico{
+    // padding: 0 !important;
+    border-radius:50% ;
+    img{
+    display: block;
+    width: 2rem;
+    border-radius: 50%;
+    margin: 0;
+  }
+}
+}

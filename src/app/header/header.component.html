@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 mt-3 rounded">
+  <div class="container-fluid">
+    <div class="links">
+      <a class="nav-link btn " (click)="goTo('accepts')">Accepts </a>
+      <a class="nav-link btn " (click)="goTo('on-delivering')">on</a>
+      <a class="nav-link btn" (click)="goTo('rejects')" >Rejected </a>
+    </div> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <li class="nav-item btn m-1 profile ico ">
+          <img src="../../favicon.ico"  alt="your Photo">
+      </li>
+
+      <li class="nav-item btn m-1 profile">
+        <a class="nav-link" (click)="goTo('orders')"> Mohamed </a>
+      </li>
+      <li class="nav-item m-1 btn out">
+        <a class="navbar-brand " (click)="goTo('login')">Logout</a>
+      </li>
+
+
+    </div>
+  </div>
+</nav>
+<!-- Example single danger button -->

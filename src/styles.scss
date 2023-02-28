@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+a{
+  list-style: none;
+}
+:root
+{
+  --btn-color:green;
+  --primary-color:white;
+  --nav-bg-color:#f8f9fa;
+  --btn-color-danger:red;
+}
+// rejects and accepts styles
+
+//
+
+.links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-around !important;
+  width: 70%;
+
+  * {
+    border: 1px solid var(--btn-color);
+    color: var(--btn-color);
+    padding: .3rem;
+    border-radius: 10px;
+    // width: 4rem;
+  }
+
+  *:hover {
+    background-color: var(--btn-color);
+    color: white;
+  }
+}
+.width3rem{
+  width: 3.7rem;
+}
