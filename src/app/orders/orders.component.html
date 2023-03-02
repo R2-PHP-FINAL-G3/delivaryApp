@@ -9,9 +9,9 @@
     </select>
   </div> -->
   <h1 class="mb-5">Orders</h1>
-  <div class="row">
-    <div class="col-md-3  col-sm-12 box">
-      <div class="card" *ngFor="let api of dataArrayForApi ; let i = index">
+  <div class="row ">
+    <div class="col-md-3  col-sm-12 box mb-4"   *ngFor="let api of dataArrayForApi ; let i = index">
+      <div class="card " style="height: 40rem;">
         <iframe class="card-img-top"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54695.308269731664!2d31.41785916139067!3d31.04138142169491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79db7a9053547%3A0xf8dab3bbed766c97!2z2KfZhNmF2YbYtdmI2LHYqdiMINin2YTZhdmG2LXZiNix2KkgKNmC2LPZhSAyKdiMINin2YTZhdmG2LXZiNix2KnYjCDYp9mE2K_ZgtmH2YTZitip2Iwg2YXYtdix!5e0!3m2!1sar!2sus!4v1677456518528!5m2!1sar!2sus"
           height="250" style="border:0;" allowfullscreen="" loading="lazy"
@@ -20,7 +20,7 @@
           <h5 class="card-title ">{{api.title}}</h5>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate mauris ac ante
             congue eleifend. Etiam sed turpis eu lorem blandit venenatis eu nec magna.</p>
-          <p class="card-text">Price: $99.99</p>
+          <p class="card-text">Price: ${{api.price}}</p>
           <a (click)="goTo('accepts',i)" class="btn btn-primary m-2">Accept</a>
           <a (click)="goTo('rejects',i)" class="btn btn-danger m-2">Reject</a>
         </div>

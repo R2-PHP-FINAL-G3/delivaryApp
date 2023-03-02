@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -30,8 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
 RouterModule,
 BrowserModule,
-FormsModule,
-HttpClientModule
+HttpClientModule,
+ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

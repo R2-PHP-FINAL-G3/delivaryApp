@@ -9,9 +9,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   // {path:'',redirectTo:"orders", pathMatch:'full'}
   // ,
-  {path:'orders', component: OrdersComponent}
+  {path:'orders/:id?', component: OrdersComponent}
   ,
-  {path:'accepts/:id', component: AcceptsOrdersComponent}
+  {path:'accepts', component: AcceptsOrdersComponent}
   ,
   {path:'on-delivering', component: OnDeliverComponent}
   ,

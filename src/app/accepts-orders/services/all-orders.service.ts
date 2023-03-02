@@ -10,4 +10,8 @@ export class AllOrdersService {
 getAllOrders(){
   return this.http.get('https://fakestoreapi.com/products')
 }
+postData(data: any){
+  this.http.post('https://fakestoreapi.com/products', data)
+}
+
 }
