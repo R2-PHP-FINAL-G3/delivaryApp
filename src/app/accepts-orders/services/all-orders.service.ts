@@ -10,4 +10,5 @@ export class AllOrdersService {
 getAllOrders(){
   return this.http.get('https://fakestoreapi.com/products')
 }
+
 }
