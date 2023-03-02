@@ -7,20 +7,22 @@ import { LoginComponent } from './login/login.component';
 import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
+  // {path:'',redirectTo:"orders", pathMatch:'full'}
+  // ,
   {path:'orders', component: OrdersComponent}
   ,
-  {path:'accepts', component: AcceptsOrdersComponent}
+  {path:'accepts/:id', component: AcceptsOrdersComponent}
   ,
   {path:'on-delivering', component: OnDeliverComponent}
   ,
   {path:'not-found', component: NotFoundComponent}
 
   ,
-  {path:'rejects', component: RejectsOrdersComponent}
+  {path:'rejects/:id', component: RejectsOrdersComponent}
   ,
   {path:'login' , component: LoginComponent}
-  ,
-  {path:'**',redirectTo:'not-found' , pathMatch:'full'}
+  // ,
+  // {path:'**',redirectTo:'not-found' , pathMatch:'full'}
 
 ];
 @NgModule({
