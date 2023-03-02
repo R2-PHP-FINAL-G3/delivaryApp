@@ -20,7 +20,7 @@
           <h5 class="card-title ">{{api.title}}</h5>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate mauris ac ante
             congue eleifend. Etiam sed turpis eu lorem blandit venenatis eu nec magna.</p>
-          <p class="card-text">Price: $99.99</p>
+          <p class="card-text">Price: ${{api.price}}</p>
           <a (click)="goTo('accepts',i)" class="btn btn-primary m-2">Accept</a>
           <a (click)="goTo('rejects',i)" class="btn btn-danger m-2">Reject</a>
         </div>

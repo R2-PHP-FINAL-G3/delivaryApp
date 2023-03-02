@@ -20,7 +20,7 @@ constructor(private router: Router , private service:AllOrdersService,private ac
 @Input() dataFromlocalStorage:any[]= [];
 ///
 goTo(prop:any,i:any){
-
+  
   this.router.navigate([prop,this.dataArrayForApi[i].id])
 }
 backTo(prop:any){
