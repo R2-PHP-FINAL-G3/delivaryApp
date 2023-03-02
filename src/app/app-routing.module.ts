@@ -11,7 +11,7 @@ const routes: Routes = [
   // ,
   {path:'orders', component: OrdersComponent}
   ,
-  {path:'accepts/:id', component: AcceptsOrdersComponent}
+  {path:'accepts', component: AcceptsOrdersComponent}
   ,
   {path:'on-delivering', component: OnDeliverComponent}
   ,

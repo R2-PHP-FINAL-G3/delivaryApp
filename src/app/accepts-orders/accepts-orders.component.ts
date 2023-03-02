@@ -26,6 +26,7 @@ goTo(prop:any,i:any){
 backTo(prop:any){
   this.router.navigate([prop])
 }
+/// api data from service accepts orders
 getOrders(){
 this.service.getAllOrders().subscribe((res:any) => {
 this.dataArrayForApi=res
@@ -33,21 +34,21 @@ this.dataArrayForApi=res
 this.dataApi.push(currentArrayOfData)
 })
 }
-setValue() {
-console.log(JSON.stringify( this.dataApi))
-  this.localStorageService.setItem('myKey', JSON.stringify( this.dataApi));
-}
+// setValue() {
+// console.log(JSON.stringify( this.dataApi))
+//   this.localStorageService.setItem('myKey', JSON.stringify( this.dataApi));
+// }
 
-getValue() {
-  const value = this.localStorageService.getItem('myKey');
-  console.log(value);
-}
+// getValue() {
+//   const value = this.localStorageService.getItem('myKey');
+//   console.log(value);
+// }
 
 
 
 ngOnInit(): void {
 this.getOrders();
-this.setValue();
-this.getValue();
+// this.setValue();
+// this.getValue();
 }
 }
