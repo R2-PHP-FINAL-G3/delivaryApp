@@ -59,6 +59,9 @@ export class LoginComponent {
 
   //   this.router.navigate([param])
   //   }
+
+
+  
   myForm = new FormGroup({
     userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     // email: new FormControl('', [Validators.required, Validators.email]),
@@ -66,10 +69,20 @@ export class LoginComponent {
       '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
     )])
   });
+  router: any;
 
   onSubmit() {
     console.log(this.myForm.value);
+    // localStorage.setItem("myForm",this.myForm.value);
+    this.goTo('orders')
+ 
+
     
   }
+
+  goTo(param:any) {
+
+      this.router.navigate([param])
+      }
 }
 
