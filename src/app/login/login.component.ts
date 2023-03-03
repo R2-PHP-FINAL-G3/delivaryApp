@@ -74,6 +74,6 @@ errorUserName:string=''
   goTo(props:string){
     this.router.navigate([props])
   }
-  
+
 }
 

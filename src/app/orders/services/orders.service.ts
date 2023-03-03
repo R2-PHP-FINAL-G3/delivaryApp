@@ -11,6 +11,6 @@ export class OrdersService {
   //dependances ingections
   constructor(private http: HttpClient) { }
   getAllOrders(): Observable<any> {
-   return this.http.get(`${environment.baseAPI}products`);
+   return this.http.get("https://fakestoreapi.com/products");
   }
 }
