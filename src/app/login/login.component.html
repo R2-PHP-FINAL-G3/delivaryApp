@@ -5,7 +5,24 @@
         <div class="card bg-light  text-success" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center" >
 
-            <form class="mb-md-5 mt-md-4 pb-5"[formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+
+
+
+ <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+  </label>
+  <br>
+  <label>
+    Email:
+    <input type="email" formControlName="email">
+  </label>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+
+            <!-- <form class="mb-md-5 mt-md-4 pb-5"[formGroup]="loginForm" (ngSubmit)="onSubmit()" >
 
               <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
               <p class="text-success-50 mb-5">Please enter your login and password!</p>
@@ -30,12 +47,13 @@
                 </span>
               </div>
               <button class="btn  btn-md px-5 form-control btn-success" type="submit">Login</button>
-            </form>
-            
+            </form> -->
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!--  -->
+
+
