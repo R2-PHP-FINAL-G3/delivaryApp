@@ -13,6 +13,8 @@ import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     RejectsOrdersComponent,
     LoginComponent,
     OnDeliverComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FormsModule,
+
   ],
   imports: [
     BrowserModule,

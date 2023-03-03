@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+
 import { FormBuilder, FormGroup, Validators ,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -58,12 +60,16 @@ export class LoginComponent {
   //   this.router.navigate([param])
   //   }
   myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    // email: new FormControl('', [Validators.required, Validators.email]),
+    password:new FormControl('' ,[Validators.required , Validators.pattern( 
+      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
+    )])
   });
 
   onSubmit() {
     console.log(this.myForm.value);
+    
   }
 }
 

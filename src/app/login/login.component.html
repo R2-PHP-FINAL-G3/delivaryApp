@@ -6,21 +6,33 @@
           <div class="card-body p-5 text-center" >
 
 
-
-
  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-outline form-success mb-4">
+
   <label>
-    Name:
+   User Name:
     <input type="text" formControlName="name">
   </label>
+</div>
+
   <br>
-  <label>
-    Email:
+  <!-- <label> -->
+    <!-- Email:
     <input type="email" formControlName="email">
+  </label> -->
+  <div class="form-outline form-success mb-4">
+  <label>
+    Password:
+    <input type="password" formControlName="password">
   </label>
+  </div>
   <br>
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form>
+
+
+
 
             <!-- <form class="mb-md-5 mt-md-4 pb-5"[formGroup]="loginForm" (ngSubmit)="onSubmit()" >
 
@@ -36,6 +48,8 @@
                    Enter a valid user name address
                 </span>
               </div>
+
+
               <div class="form-outline form-success mb-4">
                 <input type="password" id="passWord" class="form-control" formControlName="passWord" placeholder="Enter Password">
                 <span class="text-danger" *ngIf="(loginData['passWord'].touched || submitted) && loginData['passWord'].errors?.['required']">
