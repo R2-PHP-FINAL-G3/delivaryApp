@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   // loginForm!:FormGroup;
-  // submitted = false;
+  submitted = false;
   // userName: any;
-
-  // constructor(private fb:FormBuilder,private router:Router){}
+errorPass:string=""
+errorUserName:string=''
+  constructor(private fb:FormBuilder,private router:Router){}
 
   // ngOnInit(): void
   // {
@@ -58,12 +59,21 @@ export class LoginComponent {
   //   this.router.navigate([param])
   //   }
   myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    name: new FormControl('', [Validators.required, Validators.maxLength(7)]),
+    password: new FormControl('', [Validators.required]),
   });
 
   onSubmit() {
-    console.log(this.myForm.value);
+    if(this.myForm.touched || this.myForm.invalid){
+      this.errorPass="Password is required";
+      this.errorUserName="User name is required";
+
+    }else if (this.myForm.touched && this.myForm.valid)
+    this.goTo("orders")
   }
+  goTo(props:string){
+    this.router.navigate([props])
+  }
+  
 }
 

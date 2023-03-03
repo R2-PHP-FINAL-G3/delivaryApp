@@ -13,11 +13,13 @@
     Name:
     <input type="text" formControlName="name">
   </label>
+  <p>{{errorUserName}}</p> 
   <br>
   <label>
-    Email:
-    <input type="email" formControlName="email">
+    password:
+    <input type="password" formControlName="password">
   </label>
+  <p>{{errorPass}}</p>
   <br>
   <button type="submit">Submit</button>
 </form>
