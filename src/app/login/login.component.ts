@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   // loginForm!:FormGroup;
   // submitted = false;
-  // userName: any;
+  userName: any;
+  password:any;
 
-  // constructor(private fb:FormBuilder,private router:Router){}
+  constructor(private fb:FormBuilder,private router:Router , private formControll:FormControl){}
 
   // ngOnInit(): void
   // {
@@ -69,20 +70,24 @@ export class LoginComponent {
       '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
     )])
   });
-  router: any;
 
   onSubmit() {
+      // console.log("jhgwdjhgjhgdh")
+    
     console.log(this.myForm.value);
+    // console.log(this.userName.value);
+    // console.log(this.password.value);
+
     // localStorage.setItem("myForm",this.myForm.value);
-    this.goTo('orders')
+    // this.goTo('orders')
  
 
     
   }
 
-  goTo(param:any) {
+  // goTo(param:any) {
 
-      this.router.navigate([param])
-      }
+  //     this.router.navigate([param])
+  //     }
 }
 
