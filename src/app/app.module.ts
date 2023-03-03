@@ -13,7 +13,8 @@ import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     OnDeliverComponent,
     NotFoundComponent,
-    FormsModule,
+    // FormsModule,
 
   ],
   imports: [

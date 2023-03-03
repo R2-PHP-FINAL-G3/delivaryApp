@@ -7,29 +7,64 @@
 
 
  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+  <p class="text-success-50 mb-5">Please enter your login and password!</p>
 
   <div class="form-outline form-success mb-4">
 
   <label>
    User Name:
-    <input type="text" formControlName="name">
   </label>
+  <input type="text" formControlName="userName" name="userName">
+
+  <div *ngIf="userName.touched && userName.invalid">
+    <div
+      class="form-text text-danger"
+      *ngIf="userName?.errors?.['required']"
+>
+      This field is required
+    </div>
+<!-- <div
+      class="form-text text-danger"
+      *ngIf="userName?.errors?.['pattern']"
+    >
+      email must have speciacharacter[$or*or#or@] ,one character at least
+    </div> -->
+  </div>
+
+
 </div>
 
   <br>
+
+
   <!-- <label> -->
     <!-- Email:
     <input type="email" formControlName="email">
   </label> -->
+
+
   <div class="form-outline form-success mb-4">
   <label>
     Password:
-    <input type="password" formControlName="password">
+    <input type="password" formControlName="password" name="password">
   </label>
+
+  <div *ngIf="password.touched && password.invalid">
+    <div
+      class="form-text text-danger"
+      *ngIf="password?.errors?.['required']"
+    >
+      This field is required
+  </div>
+  </div>
+
   </div>
   <br>
   <button type="submit" class="btn btn-success">Submit</button>
 </form>
+
+
 
 
 
