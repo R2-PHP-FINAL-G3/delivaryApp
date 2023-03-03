@@ -7,20 +7,21 @@ import { LoginComponent } from './login/login.component';
 import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
-  // {path:'',redirectTo:"orders", pathMatch:'full'}
-  // ,
-  {path:'orders/:id?', component: OrdersComponent}
+
+  // {path:'',redirectTo:"orders", pathMatch:'full'},
+  
+  {path:'orders', component: OrdersComponent}
   ,
-  {path:'accepts', component: AcceptsOrdersComponent}
+  {path:'accepts/:id?', component: AcceptsOrdersComponent}
   ,
-  {path:'on-delivering', component: OnDeliverComponent}
+  {path:'on-delivering/:id?', component: OnDeliverComponent}
   ,
   {path:'not-found', component: NotFoundComponent}
 
   ,
-  {path:'rejects/:id', component: RejectsOrdersComponent}
+  {path:'rejects/:id?', component: RejectsOrdersComponent}
   ,
-  {path:'login' , component: LoginComponent}
+  {path:'login' , component: LoginComponent},
   // ,
   // {path:'**',redirectTo:'not-found' , pathMatch:'full'}
 
