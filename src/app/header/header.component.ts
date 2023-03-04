@@ -1,5 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-constructor(private router :Router){}
-bool:boolean=false
+constructor(private router :Router, private auth : AuthService){}
 goTo(param:any){
   this.router.navigate([param]);
 }
@@ -24,4 +24,5 @@ count = false;
  onCountChanged(newCount: boolean) {
   this.count = newCount;
 }
+
 }

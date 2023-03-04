@@ -29,7 +29,8 @@ count:boolean =false;
   login(){
     const formValue = this.loginForm.value
     this.loginService.login(formValue.username,formValue.password).subscribe({next: (res) => {
-      console.log(res)
+      // console.log(res)
+      console.log("true")
 
       localStorage.setItem('token',res.token)
       this.router.navigate(['orders'])
@@ -51,8 +52,7 @@ count:boolean =false;
       // this.isLoggedIn = true
       // this.isLoggedIn.emit(true)
 // this.booleanHeader=true
-this.countChanged.emit(this.count);
-
+// this.countChanged.emit(this.count);
 this.goTo("orders")
     }else if (this.loginForm.touched || this.loginForm.invalid )
       this.errorPass="Password is required";
