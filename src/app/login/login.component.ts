@@ -70,6 +70,7 @@ errorUserName:string=''
 
     }else if (this.myForm.touched && this.myForm.valid)
     this.goTo("orders")
+    localStorage.setItem("userName","fgdsadaff")
   }
   goTo(props:string){
     this.router.navigate([props])

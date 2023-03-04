@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './shard/spinner/spinner.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ BrowserModule,
 HttpClientModule,
 ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
