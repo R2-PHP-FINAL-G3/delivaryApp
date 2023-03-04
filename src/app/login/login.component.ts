@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators ,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,69 +9,54 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  // loginForm!:FormGroup;
-  submitted = false;
-  // userName: any;
+  loginForm!: FormGroup;
+  message = '';
+//  @Output() isLoggedIn = new EventEmitter();
 errorPass:string=""
 errorUserName:string=''
-  constructor(private fb:FormBuilder,private router:Router){}
+// @Input()  booleanHeader: boolean=false;
 
-  // ngOnInit(): void
-  // {
-  //   this.loginForm = this.fb.group({
-  //     userName:['',[Validators.required]],
-  //     passWord:['',[Validators.required,Validators]]
-  //   });
-  // }
+count:boolean =false;
+@Output()  countChanged = new EventEmitter<boolean>();
 
-  // get loginData(){
-  //   return this.loginForm.controls;
-  // }
+  constructor(private formBuilder:FormBuilder,private router:Router , private loginService :AuthService){}
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username:['',Validators.required],
+      password:['',Validators.required],
+    })
+  }
+  login(){
+    const formValue = this.loginForm.value
+    this.loginService.login(formValue.username,formValue.password).subscribe({next: (res) => {
+      console.log(res)
 
-  // onSubmit()
-  // {
-  //      this.submitted = true;
-  //      if(this.loginForm.valid)
-  //      {
-  //        localStorage.setItem("userName",this.loginForm.get('userName')?.value);
+      localStorage.setItem('token',res.token)
+      this.router.navigate(['orders'])
+    },error : (err)=>{
+      this.message='Wrong username or password!!'
+    }})
+  }
 
-  //       //  localStorage.setItem("token",this.userName?.value);
 
-  //        localStorage.setItem("passWord",this.loginForm.get('passWord')?.value);
-
-  //         this.clear();
-  //         this.loginForm.disable();
-  //         this.goTo('orders')
-
-  //         console.log(this.userName)
-  //      }
-
-  // }
-
-  // clear()
-  // {
-  //   this.loginForm.patchValue({
-  //     userName:'',
-  //     passWord:''
-  //   });
-  // }
-  // goTo(param:any) {
-
-  //   this.router.navigate([param])
-  //   }
-  myForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(7)]),
-    password: new FormControl('', [Validators.required]),
-  });
+  // loginForm = new FormGroup({
+  //   name: new FormControl('', [Validators.required, Validators.maxLength(7)]),
+  //   password: new FormControl('', [Validators.required]),
+  // });
 
   onSubmit() {
-    if(this.myForm.touched || this.myForm.invalid){
+
+    if(this.loginForm.valid){
+      // this.router.navigate(['login'])
+      // this.isLoggedIn = true
+      // this.isLoggedIn.emit(true)
+// this.booleanHeader=true
+this.countChanged.emit(this.count);
+
+this.goTo("orders")
+    }else if (this.loginForm.touched || this.loginForm.invalid )
       this.errorPass="Password is required";
       this.errorUserName="User name is required";
-
-    }else if (this.myForm.touched && this.myForm.valid)
-    this.goTo("orders")
-    localStorage.setItem("userName","fgdsadaff")
   }
   goTo(props:string){
     this.router.navigate([props])

@@ -7,12 +7,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private http:HttpClient) { }
-login (user:string,pass :string ):Observable <any>{
 
-return this.http.post<any>('',{user,pass})
-const setToken= localStorage.setItem('token',pass)
-
-}
+  login(username:string,password:string):Observable<any>{
+    return this.http.post('https://fakestoreapi.com/auth/login',{username,password})
+  }
 isAuthenticated(): boolean {
   const token = localStorage.getItem('access_token');
   return token !== null;
