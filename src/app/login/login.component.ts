@@ -45,19 +45,19 @@ count:boolean =false;
   //   password: new FormControl('', [Validators.required]),
   // });
 
-  onSubmit() {
+//   onSubmit() {
 
-    if(this.loginForm.valid){
-      // this.router.navigate(['login'])
-      // this.isLoggedIn = true
-      // this.isLoggedIn.emit(true)
-// this.booleanHeader=true
-// this.countChanged.emit(this.count);
-this.goTo("orders")
-    }else if (this.loginForm.touched || this.loginForm.invalid )
-      this.errorPass="Password is required";
-      this.errorUserName="User name is required";
-  }
+//     if(this.loginForm.valid){
+//       // this.router.navigate(['login'])
+//       // this.isLoggedIn = true
+//       // this.isLoggedIn.emit(true)
+// // this.booleanHeader=true
+// // this.countChanged.emit(this.count);
+// this.goTo("orders")
+//     }else if (this.loginForm.touched || this.loginForm.invalid )
+//       this.errorPass="Password is required";
+//       this.errorUserName="User name is required";
+//   }
   goTo(props:string){
     this.router.navigate([props])
   }

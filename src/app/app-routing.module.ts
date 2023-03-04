@@ -29,8 +29,7 @@ const routes: Routes = [
   {path:'rejects/:id', component: RejectsOrdersComponent}
   ,
   {path:'login' , component: LoginComponent},
-  // ,
-  // {path:'**',redirectTo:'orders' , pathMatch:'full'}
+   {path:'**',redirectTo:'orders' , pathMatch:'full'}
 
 ];
 @NgModule({
