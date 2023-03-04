@@ -12,14 +12,21 @@ const routes: Routes = [
   
   {path:'orders', component: OrdersComponent}
   ,
-  {path:'accepts/:id?', component: AcceptsOrdersComponent}
+  {path:'accepts', component: AcceptsOrdersComponent}
+
   ,
-  {path:'on-delivering/:id?', component: OnDeliverComponent}
+  {path:'accepts/:id', component: AcceptsOrdersComponent}
+  ,
+  {path:'on-delivering', component: OnDeliverComponent}
+,
+  {path:'on-delivering/:id', component: OnDeliverComponent}
   ,
   {path:'not-found', component: NotFoundComponent}
 
   ,
-  {path:'rejects/:id?', component: RejectsOrdersComponent}
+  {path:'rejects', component: RejectsOrdersComponent}
+  ,
+  {path:'rejects/:id', component: RejectsOrdersComponent}
   ,
   {path:'login' , component: LoginComponent},
   // ,

@@ -1,0 +1,10 @@
+.btn{
+  .fa-unlock{
+    font-size: 2rem;
+    color:#f8f9fa;
+    -webkit-text-stroke: 2px green;
+    &:hover{
+      color: green;
+    }
+  }
+}
