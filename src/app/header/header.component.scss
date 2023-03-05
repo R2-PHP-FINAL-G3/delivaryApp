@@ -1,16 +1,21 @@
 nav {
 
-  .nav-link.btn{
-    
-  }
-  .out {
-    color: var(--btn-color-danger);
-    border: 1px solid var(--btn-color-danger);
+  // .nav-link.btn{
 
-    &:hover {
-      background-color: var(--btn-color-danger);
+  // }
+  .container-fluid{
+    .logout{
+      color: var(--btn-color-danger);
+      border: 1px solid var(--btn-color-danger);
+
+      &:hover{
+        color: white!important;
+        background-color: var(--btn-color-danger);
+
+      }
     }
   }
+
   .profile{
 
       border: 1px solid var(--btn-color);

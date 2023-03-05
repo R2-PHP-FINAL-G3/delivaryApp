@@ -33,7 +33,7 @@ count:boolean =false;
       console.log("true")
 
       localStorage.setItem('token',res.token)
-      this.router.navigate(['orders'])
+      this.router.navigate(['/orders'])
     },error : (err)=>{
       this.message='Wrong username or password!!'
     }})

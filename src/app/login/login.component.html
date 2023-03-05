@@ -1,5 +1,5 @@
 
-<!-- 
+<!--
 <i class="fas fa-cloud"></i>
 <i class="fas fa-heart"></i>
 <i class="fas fa-car"></i>
@@ -52,7 +52,7 @@
     <input type="password" class="form-control" id="floatingPassword" formControlName="password">
     <label for="floatingPassword">Password</label>
   </div>
-  <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+  <button class="w-100 btn btn-lg btn-primary" [ngStyle]="{'opacity':loginForm.valid?' 1':'.3'}" type="submit">Login</button>
   <br><br>
   <p *ngIf="message" class="alert alert-danger alert-dismissible fade show">{{message}}</p>
 </form>

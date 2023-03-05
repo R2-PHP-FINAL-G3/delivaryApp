@@ -10,8 +10,8 @@ import { RoutingService } from '../../shard/services/routing.service';
 })
 export class OrdersService {
   //dependances ingections
-  constructor(private http: HttpClient, private info:RoutingService) { }
+  constructor(private http: HttpClient, private routing:RoutingService) { }
   getAllOrders(): Observable<any> {
-   return this.http.get(this.info.url+"products");
+   return this.http.get(`${this.routing.url}products`);
   }
 }
