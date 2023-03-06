@@ -30,10 +30,13 @@ count:boolean =false;
     const formValue = this.loginForm.value
     this.loginService.login(formValue.username,formValue.password).subscribe({next: (res) => {
       // console.log(res)
-      console.log("true")
+      // console.log("true")
 
       localStorage.setItem('token',res.token)
+      localStorage.setItem('data',JSON.stringify(res.deliveryGuy) )
+
       this.router.navigate(['/orders'])
+      console.log(res.deliveryGuy)
     },error : (err)=>{
       this.message='Wrong username or password!!'
     }})

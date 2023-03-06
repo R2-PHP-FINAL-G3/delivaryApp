@@ -9,8 +9,14 @@ import { AuthService } from '../auth/auth.service';
 })
 export class HeaderComponent {
 constructor(private router :Router, private auth : AuthService){}
-goTo(param:any){
+goTo(param:string){
   this.router.navigate([param]);
+}
+logout(prop:string){
+this.goTo(prop)
+localStorage.removeItem('token')
+localStorage.removeItem('data')
+
 }
 @Input() isLoggedIn(): boolean {
   // Check if the user is logged in

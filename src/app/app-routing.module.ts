@@ -6,11 +6,14 @@ import {RejectsOrdersComponent} from './rejects-orders/rejects-orders.component'
 import { LoginComponent } from './login/login.component';
 import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
 
   {path:'',redirectTo:"orders", pathMatch:'full'},
 
   {path:'orders', component: OrdersComponent}
+  ,
+  {path:'profile', component: ProfileComponent}
   ,
   {path:'accepts', component: AcceptsOrdersComponent}
 
@@ -36,4 +39,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+}

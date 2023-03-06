@@ -1,10 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 mt-3 rounded" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 mt-3 rounded">
   <div class="container-fluid">
     <div class="links">
-
+      <a (click)="goTo('orders')" routerLinkActive=""><i class="fas fa-home"></i></a>
       <a (click)="goTo('accepts')" routerLinkActive=""><i class="  fas fa-thumbs-up"></i></a>
-      <a (click)="goTo('on-delivering')"><i class="fas fa-street-view"></i>      </a>
-      <a (click)="goTo('rejects')" >  <i class="fas fa-thumbs-down"></i></a>
+      <a (click)="goTo('on-delivering')"><i class="fas fa-street-view"></i> </a>
+      <a (click)="goTo('rejects')"> <i class="fas fa-thumbs-down"></i></a>
+
     </div> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -12,15 +13,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <li class="nav-item btn m-1 profile ico ">
-          <img src="../../favicon.ico"  alt="your Photo">
+      <li (click)="goTo('profile')" class="nav-item btn m-1 profile ico ">
+        <img src="../../favicon.ico" alt="your Photo">
       </li>
 
-      <li class="nav-item btn m-1 profile nav-link" (click)="goTo('orders')">
+      <!-- <li class="nav-item btn m-1 profile nav-link">
          Mohamed
-      </li>
+      </li> -->
 
-       <li class="nav-item m-1 btn out logout" (click)="goTo('/login')"><i class="fas fa-lock"></i>    </li>
+      <li class="nav-item m-1 btn out logout" (click)="logout('/login')"><i class="fas fa-lock"></i> </li>
 
 
 

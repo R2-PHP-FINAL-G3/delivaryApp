@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './shard/spinner/spinner.component';
 import { AuthService } from './auth/auth.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthService } from './auth/auth.service';
     LoginComponent,
     OnDeliverComponent,
     NotFoundComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

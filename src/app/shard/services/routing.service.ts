@@ -9,7 +9,7 @@ export class RoutingService {
   constructor(private router: Router) { }
 //
 
-  url:string='https://fakestoreapi.com/'
+  url:string='http://127.0.0.1:8000/api/'
 
-  
+
 }

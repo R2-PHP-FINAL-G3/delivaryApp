@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RoutingService } from '../shard/services/routing.service';
+import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   test=false;
 
-  constructor(private http:HttpClient, private routing:RoutingService) { }
+  constructor(private http:HttpClient) { }
 
-  login(username:string,password:string):Observable<any>{
-    // console.log("test"+this.http.post('https://fakestoreapi.com/auth/login',{username,password}).subscribe)
-    return this.http.post(this.routing.url+"auth/login",{username,password})
+  login(userName:string,password:string):Observable<any>{
+    // console.log("test"+this.http.post('https://fakestoreapi.com/auth/login',{userName,password}).subscribe)
+    return this.http.post(environment.baseAPI+'deliverystaff/login',{'user-name':userName,'password':password})
   }
 isAuthenticated(): boolean {
   const token = localStorage.getItem('access_token');
