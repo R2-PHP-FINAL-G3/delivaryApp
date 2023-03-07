@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../services/local-storage.service';
 import { DelevaryInfo } from '../interfaces/delevary-info';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent {
 boolChangeData: boolean = false;
-  
+
   hisInfo:DelevaryInfo={
     companyId: 0,
     created_at: '',
@@ -26,18 +27,18 @@ boolChangeData: boolean = false;
     updated_at: '',
     userName: ''
   }
-   
+
 // hisInfo=JSON.parse({})
-  constructor(private  router : Router){}
- ngOnInit() :void {
-  if(localStorage.getItem('data')==null){
+constructor(private  router : Router,private authService:AuthService){}
+ngOnInit() :void {
+  if(!this.authService.isAuthenticated()){
   this.router.navigate(['login'])}else{
 this.hisInfo=(JSON.parse( localStorage.getItem('data') || ''))
       // console.log(res)
-      console.log('\n inf \n',this.hisInfo,'\n inf \n')
+      // console.log('\n inf \n',this.hisInfo,'\n inf \n')
 
   }
-  }  
+  }
 changeData(){
   this.boolChangeData=true
 }

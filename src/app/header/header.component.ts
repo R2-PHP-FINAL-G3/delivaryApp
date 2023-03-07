@@ -9,7 +9,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class HeaderComponent {
   boolDesplayed: boolean = false;
-constructor(private router :Router, private auth : AuthService){}
+constructor(private router :Router, private authService : AuthService){}
 goTo(param:string){
   this.router.navigate([param]);
 }
@@ -31,7 +31,7 @@ count = false;
   this.count = newCount;
 }
 ngOnInit():void{
-  if(localStorage.getItem('data')==null){
+  if(!this.authService.isAuthenticated()){
     this.router.navigate(['login'])
     this.boolDesplayed=false;
 

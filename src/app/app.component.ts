@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private router: Router , private authService:AuthService){}
   title = 'dilevary';
   boolDesplayed: boolean=false;
   ngOnInit():void{
-    if(localStorage.getItem('data')==null){
+    if(!this.authService.isAuthenticated()){
       this.boolDesplayed=false;
+      this.router.navigate(['login'])
     }else{
       this.boolDesplayed=true;
     }
+ 
   }
+
 }

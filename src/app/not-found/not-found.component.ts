@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-not-found',
@@ -7,12 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {
-constructor(private router :Router){}
+constructor(private router :Router ,private authService :AuthService){}
 goTo(params:any){
   this.router.navigate([params]);
 }
 ngOnInit():void{
-  if(localStorage.getItem('data')==null){
+  if(!this.authService.isAuthenticated()){
     this.router.navigate(['login'])
   }
 }
