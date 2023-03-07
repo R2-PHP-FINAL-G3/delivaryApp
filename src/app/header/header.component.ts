@@ -14,8 +14,7 @@ goTo(param:string){
 }
 logout(prop:string){
 this.goTo(prop)
-localStorage.removeItem('token')
-localStorage.removeItem('data')
+localStorage.clear()
 
 }
 @Input() isLoggedIn(): boolean {

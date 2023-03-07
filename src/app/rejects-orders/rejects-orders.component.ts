@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rejects-orders',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class RejectsOrdersComponent {
 
+   constructor(private router: Router){}
+
+  ngOnInit() :void {
+    if(localStorage.getItem('data')==null){
+    this.router.navigate(['login'])}
+    }  
 }

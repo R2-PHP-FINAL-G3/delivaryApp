@@ -11,5 +11,11 @@ export class RoutingService {
 
   url:string='http://127.0.0.1:8000/api/'
 
-
+  ifMaintnableByURL(prop:string){
+    if(localStorage.getItem('data')==null){
+      this.router.navigate(['/login'])
+    }else{
+    this.router.navigate([prop])
+    }
+  }
 }

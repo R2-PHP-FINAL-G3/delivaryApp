@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {Order} from '../interfaces/order'
 import { AllOrdersService } from './services/all-orders.service';
 import {LocalStorageService} from '../services/local-storage.service';
+import { RoutingService } from '../shard/services/routing.service';
 @Component({
   selector: 'app-accepts-orders',
   templateUrl: './accepts-orders.component.html',
@@ -11,7 +12,7 @@ import {LocalStorageService} from '../services/local-storage.service';
 export class AcceptsOrdersComponent {
   val:any[]=[];
   currentArrayOfData: Order | undefined;
-constructor(private router: Router , private service:AllOrdersService,private activatedRoute :ActivatedRoute , private localStorageService:LocalStorageService){}
+constructor(private router: Router , private service:AllOrdersService,private activatedRoute :ActivatedRoute , private localStorageService:LocalStorageService, private routing:RoutingService){}
 @Input() dataArrayForApi:Order[]=[
   {id:'1',title:"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}}
 ];
@@ -22,11 +23,16 @@ constructor(private router: Router , private service:AllOrdersService,private ac
 @Input() dataFromlocalStorage:any[]= [];
 ///
 goTo(prop:any,i:any){
-  
+  if(localStorage.getItem('data')==null){
+    this.router.navigate(['/login'])
+  }else{
   this.router.navigate([prop,this.dataArrayForApi[i].id])
+  }
 }
 backTo(prop:any){
-  this.router.navigate([prop])
+this.routing.ifMaintnableByURL(prop)
+  // this.router.navigate([prop])
+  
 }
 /// api data from service accepts orders
 getOrders(){

@@ -11,4 +11,9 @@ constructor (private router: Router){}
 goTo(param:any) {
 this.router.navigate([param])
 }
+ngOnInit():void{
+  if(localStorage.getItem('data')==null){
+    this.router.navigate(['login'])
+  }
+}
 }
