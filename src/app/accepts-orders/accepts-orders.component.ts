@@ -48,21 +48,14 @@ this.dataApi.push(this.currentArrayOfData)
 console.log(this.activatedRoute.snapshot.paramMap.get('id'),this.dataArrayForApi)
 })
 }
-// setValue() {
-// console.log(JSON.stringify( this.dataApi))
-//   this.localStorageService.setItem('myKey', JSON.stringify( this.dataApi));
-// }
-
-// getValue() {
-//   const value = this.localStorageService.getItem('myKey');
-//   console.log(value);
-// }
 
 
 
 ngOnInit(): void {
-this.getOrders();
-// this.setValue();
-// this.getValue();
+  if(localStorage.getItem('data')==null){
+    this.router.navigate(['login'])
+  }
+   else {this.getOrders();}
+
 }
 }

@@ -1,6 +1,8 @@
-<div class="container" >
-
-<router-outlet ></router-outlet>
+<div class="container" *ngIf="!boolDesplayed" >
+<router-outlet></router-outlet>
 </div>
-
+<div class="container" *ngIf="boolDesplayed" >
+  <app-header ></app-header>
+  <router-outlet ></router-outlet>
+  </div>
 <!--  -->

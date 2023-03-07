@@ -25,6 +25,7 @@ count:boolean =false;
       username:['',Validators.required],
       password:['',Validators.required],
     })
+
   }
   login(){
     const formValue = this.loginForm.value
@@ -36,31 +37,15 @@ count:boolean =false;
       localStorage.setItem('data',JSON.stringify(res.deliveryGuy) )
 
       this.router.navigate(['/orders'])
+      
       console.log(res.deliveryGuy)
+      setTimeout(()=>location.reload(),1)
     },error : (err)=>{
       this.message='Wrong username or password!!'
     }})
+
   }
 
-
-  // loginForm = new FormGroup({
-  //   name: new FormControl('', [Validators.required, Validators.maxLength(7)]),
-  //   password: new FormControl('', [Validators.required]),
-  // });
-
-//   onSubmit() {
-
-//     if(this.loginForm.valid){
-//       // this.router.navigate(['login'])
-//       // this.isLoggedIn = true
-//       // this.isLoggedIn.emit(true)
-// // this.booleanHeader=true
-// // this.countChanged.emit(this.count);
-// this.goTo("orders")
-//     }else if (this.loginForm.touched || this.loginForm.invalid )
-//       this.errorPass="Password is required";
-//       this.errorUserName="User name is required";
-//   }
   goTo(props:string){
     this.router.navigate([props])
   }

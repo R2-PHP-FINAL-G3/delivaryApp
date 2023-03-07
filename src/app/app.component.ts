@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dilevary';
+  boolDesplayed: boolean=false;
+  ngOnInit():void{
+    if(localStorage.getItem('data')==null){
+      this.boolDesplayed=false;
+    }else{
+      this.boolDesplayed=true;
+    }
+  }
 }

@@ -8,6 +8,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  boolDesplayed: boolean = false;
 constructor(private router :Router, private auth : AuthService){}
 goTo(param:string){
   this.router.navigate([param]);
@@ -15,7 +16,7 @@ goTo(param:string){
 logout(prop:string){
 this.goTo(prop)
 localStorage.clear()
-
+setTimeout(()=>location.reload(),1)
 }
 @Input() isLoggedIn(): boolean {
   // Check if the user is logged in
@@ -29,5 +30,13 @@ count = false;
  onCountChanged(newCount: boolean) {
   this.count = newCount;
 }
+ngOnInit():void{
+  if(localStorage.getItem('data')==null){
+    this.router.navigate(['login'])
+    this.boolDesplayed=false;
 
+  }else{
+    this.boolDesplayed=true;
+  }
+}
 }
