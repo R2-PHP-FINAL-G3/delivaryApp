@@ -21,7 +21,7 @@ constructor(private router: Router , private service:AllOrdersService,private ac
     "updated_at": 'string',
     "invoiceCode": 'string',
     "companyId": 1,
-    "deliveryGuyId":JSON.parse( localStorage.getItem('4YCgix4J1K9uEm')||'1'),
+    "deliveryGuyId":null,
     "isPaid": 1,
     "delivaryFees": "1.000",
     "status": "waiting",
@@ -44,6 +44,7 @@ constructor(private router: Router , private service:AllOrdersService,private ac
 goTo(prop:any,i:any){
   if(localStorage.getItem('data')==null){
     this.router.navigate(['/login'])
+    localStorage.clear();
   }else{
   this.router.navigate([prop,this.dataArrayForApi[i].id])
   }

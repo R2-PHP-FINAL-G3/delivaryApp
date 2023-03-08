@@ -10,6 +10,7 @@ import { RoutingService } from '../../shard/services/routing.service';
 })
 export class OrdersService {
   token=localStorage.getItem('4YCgix4J1K9uEm')||''
+  companyId=JSON.parse( localStorage.getItem('data')||'').companyId
   message: any='';
   //dependances ingections
   constructor(private http: HttpClient, private routing:RoutingService) { }
@@ -17,13 +18,13 @@ export class OrdersService {
     // return this.http.get(environment.baseAPI+'allOrders')
     return this.getData(this.token)
   }
-  getData(token: string): Observable<any> {
+  getData(token: string): Observable<Order> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     };
 
-    return this.http.get<any>(environment.baseAPI+'allOrders', httpOptions);
+    return this.http.get<any>(`${environment.baseAPI}orders/waiting`, httpOptions);
   }
 }

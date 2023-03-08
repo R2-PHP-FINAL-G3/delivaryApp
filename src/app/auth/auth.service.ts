@@ -25,6 +25,10 @@ export class AuthService {
   //   return this.http.post(environment.baseAPI+'allOrders',{'token':this.token,'message':this.message})
 
   // }
+  updateStatus(id:string,status:string){
+    return this.http.get(`${environment.baseAPI}update/${id}/${status}`)
+
+  }
 
   isAuthenticated(): boolean {
   const token = localStorage.getItem('4YCgix4J1K9uEm');
