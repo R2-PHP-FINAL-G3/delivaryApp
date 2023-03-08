@@ -3,6 +3,10 @@ nav {
   // .nav-link.btn{
 
   // }
+  width: 100%;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
   .container-fluid{
     .logout{
       color: var(--btn-color-danger);
