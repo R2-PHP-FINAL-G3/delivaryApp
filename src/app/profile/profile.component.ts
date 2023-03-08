@@ -34,7 +34,7 @@ ngOnInit() :void {
   if(!this.authService.isAuthenticated()){
   this.router.navigate(['login'])}else{
 this.hisInfo=(JSON.parse( localStorage.getItem('data') || ''))
-      // console.log(res)
+      console.log(this.hisInfo)
       // console.log('\n inf \n',this.hisInfo,'\n inf \n')
 
   }

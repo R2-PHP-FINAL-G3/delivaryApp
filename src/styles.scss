@@ -30,9 +30,9 @@ a{
   width: 75%;
 
   * {
-    border: 1px solid var(--btn-color);
+    // border: 1px solid var(--btn-color);
     color: var(--btn-color);
-    padding: .3rem;
+    // padding: .3rem;
     border-radius: 10px;
     font-size: 1.5rem;
 
@@ -40,8 +40,9 @@ a{
   }
 
   *:hover {
-    background-color: var(--btn-color);
-    color: white;
+    // background-color: var(--btn-color);
+    // color: white;
+    transform: scale(1.1);
   }
 }
 .width3rem{

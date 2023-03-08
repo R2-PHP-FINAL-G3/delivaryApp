@@ -36,7 +36,7 @@ count:boolean =false;
 
   login(){
     const formValue = this.loginForm.value
-    this.authService.login(formValue.username,formValue.password).subscribe({next: async (res) => {
+    this.authService.login(formValue.username,formValue.password).subscribe({next: (res) => {
       // console.log(res)
       // console.log("true")
 
@@ -48,13 +48,12 @@ count:boolean =false;
       localStorage.setItem('3'+this.routingService.hashing+'Em',Math.floor((Math.random() * 100) + 1)+'|'+Math.floor((Math.random() * 100) + 1)+'U3JevwTFybef'+this.routingService.hashing+'r7T4'+this.routingService.hashing)
       localStorage.setItem('4YCgix4J1K9uEm',res.token)
       localStorage.setItem('5'+this.routingService.hashing+'Em',Math.floor((Math.random() * 100) + 1)+'|'+Math.floor((Math.random() * 100) + 1)+'U3Jeyef'+this.routingService.hashing+'r7T4bT1Ec8QbuU7tdvwT')
-      // localStorage.setItem('data',JSON.stringify(res.deliveryGuy) )
+      localStorage.setItem('data',JSON.stringify(res.deliveryGuy) )
 
       this.router.navigate(['/orders'])
 
       console.log(res.deliveryGuy)
-      await location.reload()
-      // setTimeout(()=>location.reload(),1)
+      setTimeout(()=>location.reload(),1)
     },error : (err)=>{
       this.message='Wrong username or password!!'
     }})
