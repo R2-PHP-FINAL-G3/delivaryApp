@@ -13,14 +13,21 @@ constructor(private router :Router, private authService : AuthService){}
 goTo(param:string){
   this.router.navigate([param]);
 }
-logout(prop:string){
-this.goTo(prop)
-localStorage.clear()
-setTimeout(()=>location.reload(),1)
-}
+// logout(prop:string){
+// this.goTo(prop)
+// localStorage.clear()
+// setTimeout(()=>location.reload(),1)
+// }
 @Input() isLoggedIn(): boolean {
   // Check if the user is logged in
   return true; // or false
+}
+  async logout(){
+  this.authService.logout()
+  this.router.navigate(['/login'])
+  localStorage.clear()
+  await location.reload()
+  // setTimeout(()=>location.reload(),1)
 }
 // isLogin(even:boolean){
 // this.bool=even
@@ -39,4 +46,5 @@ ngOnInit():void{
     this.boolDesplayed=true;
   }
 }
+
 }

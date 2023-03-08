@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-rejects-orders',
@@ -8,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class RejectsOrdersComponent {
 
-   constructor(private router: Router){}
+   constructor(private router: Router ,private authService:AuthService){}
 
   ngOnInit() :void {
-    if(localStorage.getItem('data')==null){
+    if(!this.authService.isAuthenticated()){
     this.router.navigate(['login'])}
-    }  
+    }
 }
