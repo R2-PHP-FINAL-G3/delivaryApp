@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order } from '../../interfaces/order';
@@ -9,9 +9,21 @@ import { RoutingService } from '../../shard/services/routing.service';
   providedIn: 'root'
 })
 export class OrdersService {
+  token=localStorage.getItem('4YCgix4J1K9uEm')||''
+  message: any='';
   //dependances ingections
   constructor(private http: HttpClient, private routing:RoutingService) { }
   getAllOrders(): Observable<any> {
-   return this.http.get(`${this.routing.url}products`);
+    // return this.http.get(environment.baseAPI+'allOrders')
+    return this.getData(this.token)
+  }
+  getData(token: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    return this.http.get<any>(environment.baseAPI+'allOrders', httpOptions);
   }
 }

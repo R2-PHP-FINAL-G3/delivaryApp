@@ -12,9 +12,27 @@ import { AuthService } from '../auth/auth.service';
 export class OrdersComponent implements OnInit  {
 constructor(private router: Router, private service:OrdersService ,private authService :AuthService){}
 laoding:boolean = false;
-@Input() dataArrayForApi:Order[]=[
-  {id:'1',title:"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}}
-];
+@Input() dataArrayForApi:any=[
+{
+  "id": 10,
+  "created_at": "2023-03-08T13:11:19.000000Z",
+  "updated_at": "2023-03-08T13:11:19.000000Z",
+  "invoiceCode": "1234",
+  "companyId": 5,
+  "deliveryGuyId": null,
+  "isPaid": 1,
+  "delivaryFees": "1.000",
+  "status": "waiting",
+  "city": "maa",
+  "street": "ds2",
+  "buildingNumber": "1",
+  "floorNumber": "2",
+  "apartmentNumber": "1",
+  "totalPrice": "1234.00000",
+  "orderDate": "2023-02-02 00:00:00",
+  "clientName": "zaater",
+  "clientPhone": "1234567890"
+}];
 goTo(param:any,i:any){
 
   // this.router.navigate([param,this.dataArrayForApi[i].id])
@@ -28,7 +46,7 @@ ngOnInit():void{
   }
       else{
   this.getOrders();
-  console.log(this.authService.isAuthenticated())
+  // console.log(this.authService.isAuthenticated())
     }
 }
 ///take one or more parameters
@@ -47,7 +65,7 @@ getOrders(){
   this.service.getAllOrders().subscribe((res: any) =>{
     this.laoding=false
 
-    // console.log(res);
+    console.log(res);
     this.dataArrayForApi=res
     // console.log(this.dataArrayForApi)
   }

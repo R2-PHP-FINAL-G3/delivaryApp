@@ -9,6 +9,7 @@ import { RoutingService } from '../shard/services/routing.service';
 export class AuthService {
   test=false;
   message:String=''
+  token = localStorage.getItem('4YCgix4J1K9uEm');
 
   constructor(private http:HttpClient , private routingService :RoutingService) { }
 
@@ -18,12 +19,16 @@ export class AuthService {
   }
   logout(){
 
-    const token = localStorage.getItem('4YCgix4J1K9uEm');
-  return this.http.post(environment.baseAPI+'deliverystaff/logout',{'token':token,'message':this.message})
+  return this.http.post(environment.baseAPI+'deliverystaff/logout',{'token':this.token,'message':this.message})
   }
-isAuthenticated(): boolean {
+  // allOrders():Observable<any>{
+  //   return this.http.post(environment.baseAPI+'allOrders',{'token':this.token,'message':this.message})
+
+  // }
+
+  isAuthenticated(): boolean {
   const token = localStorage.getItem('4YCgix4J1K9uEm');
   return token !== null;
 
-}
+  }
 }
