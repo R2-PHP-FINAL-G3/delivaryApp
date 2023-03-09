@@ -1,6 +1,7 @@
 <!-- <app-header ></app-header> -->
 
-<div class="box mt-5" *ngIf="laoding==false">
+<div class="box mt-5" >
+
   <!-- <div class="my-2 w-25">
     <label for="" class="my-1">Categories :</label>
     <select class="form-control">
@@ -10,13 +11,13 @@
       <option value="4">option4</option>
     </select>
   </div> -->
-  <h1 class="mb-5">{{allDataArrayForApi?.message}}</h1>
+  <h1 class="mb-5">{{message}}</h1>
   <!-- <select class="selectpicker" *ngIf="let sortCity of dataArrayForApi ">
     <option >
       <p> {{sortCity}}</p>
     </option>
   </select> -->
-  <div class="row ">
+  <div class="row "*ngIf="(!laoding)&&dataArrayForApi!=''">
     <div class="col-md-3  col-sm-12 box mb-4"   *ngFor="let api of dataArrayForApi ; let i = index">
       <div class="card card-view  " style="height: 40rem;">
         <iframe class="card-img-top"
@@ -34,10 +35,11 @@
         </div>
       </div>
     </div>
+
   </div>
 
 </div>
-<div class="text-center w-100">
+<div class="text-center w-100" *ngIf="laoding&&(dataArrayForApi=='')">
     <app-spinner></app-spinner>
   </div>
 <!-- <div class="row">

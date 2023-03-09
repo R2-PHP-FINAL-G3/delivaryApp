@@ -1,6 +1,6 @@
 <!-- <app-header ></app-header> -->
 
-<h1 class="mb-5">Rejects Orders</h1>
+<h1 class="mb-5" >Rejects Orders</h1>
 
 <div class="card">
   <div class="row">
@@ -11,17 +11,20 @@
                   <div class="col align-self-center text-right text-muted">3 items</div>
               </div>
           </div>
-          <div class="row border-top border-bottom">
+          <div class="row border-top border-bottom" *ngFor="let api of respose">
               <div class="row main align-items-center">
-                  <div class="col"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                  <!-- <div class="col"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div> -->
                   <div class="col">
-                      <div class="row text-muted">Shirt</div>
-                      <div class="row">Cotton T-shirt</div>
+                    <div class="row text-muted">{{api?.city}}</div>
+                    <div class="row text-muted">{{api?.clientName}}</div>
+                    <div class="row text-muted">{{api?.clientPhone}}</div>
+                      <div class="row text-muted">{{api?.status}}</div>
+                    <div class="row">Cotton T-shirt</div>
                   </div>
 
-                  <div class="col">&euro; 44  <span class=" h2 text-danger" > x</span></div>
+                  <div class="col">&euro; {{api?.totalPrice}}  <span class=" h2 text-danger" > x</span></div>
               </div>
-              
+
           </div>
 
 

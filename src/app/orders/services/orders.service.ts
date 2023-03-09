@@ -20,8 +20,14 @@ export class OrdersService {
   //////////
   getAllOrders(): Observable<any> {
     // return this.http.get(environment.baseAPI+'allOrders')
-    return this.getData('orders/waiting')
-  }
+    const httpOptions= {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.token}`
+      })
+    };
+      return this.http.get<Order>(`${environment.baseAPI}orders/waiting`, httpOptions);
+    }
+  
   getData(prop:string): Observable<Order> {
  const httpOptions= {
     headers: new HttpHeaders({

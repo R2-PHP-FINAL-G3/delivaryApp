@@ -15,28 +15,8 @@ constructor(private router: Router, private service:OrdersService ,private authS
 laoding:boolean = false;
 
 allDataArrayForApi:Waiting | undefined
- @Input() dataArrayForApi :any =[
-  {
-    "id": 1,
-    "created_at": "2023-03-08T11:48:22.000000Z",
-    "updated_at": "2023-03-08T11:48:22.000000Z",
-    "invoiceCode": "1234",
-    "companyId": 5,
-    "deliveryGuyId": null,
-    "isPaid": 1,
-    "delivaryFees": "1.000",
-    "status": "waiting",
-    "city": "maa",
-    "street": "ds2",
-    "buildingNumber": "1",
-    "floorNumber": "2",
-    "apartmentNumber": "1",
-    "totalPrice": "1234.00000",
-    "orderDate": "2023-02-02 00:00:00",
-    "clientName": "zaater",
-    "clientPhone": "1234567890"
-
-}];
+message:string =''
+ @Input() dataArrayForApi :any =''
 goTo(param:any,i:any){
 
   // this.router.navigate([param,this.dataArrayForApi[i].id])
@@ -76,6 +56,7 @@ getOrders(){
     this.laoding=false
     this.dataArrayForApi=res.data
     this.allDataArrayForApi=res
+    this.message=res.message
     console.log("aaarrray",res);
     // this.dataArrayForApi=res.filter((a:any) => { return a.status == "waiting"})
     // console.log(this.dataArrayForApi)
@@ -83,9 +64,11 @@ getOrders(){
   }
 ,
 (error:any)=>{
-  console.log( error.message);
+ 
   this.laoding=false
-
+  this.message=error.error.message
+  error.status==406?setTimeout(()=>this.router.navigate(['onDelivering']), 5000):''
+console.log('get all',error)
 },
 
   )

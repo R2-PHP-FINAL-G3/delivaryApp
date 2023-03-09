@@ -35,9 +35,18 @@ export class AuthService {
      return this.http.get<any>(`${environment.baseAPI}order/update/${id}/${prop}`, httpOptions)
 
    }
+   getDataByStatus(Status:String){
+    return this.http.get(environment.baseAPI+'orders/'+Status ,{
+      headers : new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+   })});
+   }
+   
   isAuthenticated(): boolean {
-  const token = localStorage.getItem('4YCgix4J1K9uEm');
-  return token !== null;
+  // const token = localStorage.getItem('4YCgix4J1K9uEm');
+  return this.token !== null;
 
   }
 }

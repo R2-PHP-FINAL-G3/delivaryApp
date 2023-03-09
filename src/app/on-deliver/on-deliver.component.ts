@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { OrdersService } from '../orders/services/orders.service';
+import { Order } from '../interfaces/order';
+import { Waiting } from '../interfaces/waiting';
 
 @Component({
   selector: 'app-on-deliver',
@@ -10,9 +12,11 @@ import { OrdersService } from '../orders/services/orders.service';
 })
 export class OnDeliverComponent {
 constructor (private router: Router , private authService :AuthService ,private activatedRoute :ActivatedRoute ,private service:OrdersService ){}
-onDelivarig:string=''
+onDelivarig:any=''
+
 goTo(param:any) {
 this.router.navigate([param])
+
 // this.authService.updateStatus(param,this.dataArrayForApi[i].id).subscribe((res:any)=>{
 //   console.log(res);
 // },(err:any)=>{
@@ -24,6 +28,14 @@ ngOnInit():void{
     this.router.navigate(['login'])
   }
   else{
+    this.authService.getDataByStatus('onDelivering').subscribe((res:any)=>{
+      this.onDelivarig=res
+      console.log(res)
+    },(error:any)=>{
+      console.log('this is error message',error)
+    })
+    // "status",
+    // ['onDelivering', 'delivered', 'cancelled', 'waiting', 'returned']
     // this.service.getData('allorders').subscribe((res:any)=>{
     //   this.onDelivarig=res.filter((p:any)=>p.status=="allorders")
     //   console.log(res)
