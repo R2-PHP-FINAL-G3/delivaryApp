@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../../interfaces/order';
 import { environment } from 'src/environments/environment';
 import { RoutingService } from '../../shard/services/routing.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +14,22 @@ export class OrdersService {
   companyId=JSON.parse( localStorage.getItem('data')||'').companyId
   message: any='';
   //dependances ingections
-  constructor(private http: HttpClient, private routing:RoutingService) { }
+  constructor(private http: HttpClient, private routing:RoutingService ,private authService: AuthService) { }
+  //put the token on header for general
+
+  //////////
   getAllOrders(): Observable<any> {
     // return this.http.get(environment.baseAPI+'allOrders')
-    return this.getData(this.token)
+    return this.getData()
   }
-  getData(token: string): Observable<Order> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
-      })
-    };
+  getData(): Observable<Order> {
+ const httpOptions= {
+    headers: new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    })
+  };
+    return this.http.get<Order>(`${environment.baseAPI}orders/waiting`, httpOptions);
+  }
 
-    return this.http.get<any>(`${environment.baseAPI}orders/waiting`, httpOptions);
-  }
+
 }

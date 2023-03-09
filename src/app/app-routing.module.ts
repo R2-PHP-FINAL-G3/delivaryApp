@@ -21,9 +21,9 @@ const routes: Routes = [
   ,
   {path:'accepts/:id', component: AcceptsOrdersComponent}
   ,
-  {path:'on-delivering', component: OnDeliverComponent}
+  {path:'onDelivering', component: OnDeliverComponent}
 ,
-  {path:'on-delivering/:id', component: OnDeliverComponent}
+  {path:'onDelivering/:id', component: OnDeliverComponent}
   ,
   {path:'not-found', component: NotFoundComponent}
 
@@ -40,6 +40,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
 }

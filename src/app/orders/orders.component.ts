@@ -40,8 +40,14 @@ allDataArrayForApi:Waiting | undefined
 goTo(param:any,i:any){
 
   // this.router.navigate([param,this.dataArrayForApi[i].id])
+   this.authService.updateStatus(param,this.dataArrayForApi[i].id).subscribe((res:any)=>{
+    console.log(res);
+  },(err:any)=>{
+    console.log(err.message);
+  })
+
   this.routingForParamOrNot(param,this.dataArrayForApi[i].id)
-  // console.log(this.dataArrayForApi[i].id)
+  console.log(this.dataArrayForApi[i].id)
 }
 
 ngOnInit():void{

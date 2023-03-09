@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { RoutingService } from '../shard/services/routing.service';
@@ -25,11 +25,16 @@ export class AuthService {
   //   return this.http.post(environment.baseAPI+'allOrders',{'token':this.token,'message':this.message})
 
   // }
-  updateStatus(id:string,status:string){
-    return this.http.get(`${environment.baseAPI}update/${id}/${status}`)
 
-  }
+  updateStatus(prop:string,id:string){
+    const httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${this.token}`
+     })
+   };
+     return this.http.get<any>(`${environment.baseAPI}order/update/${id}/${prop}`, httpOptions)
 
+   }
   isAuthenticated(): boolean {
   const token = localStorage.getItem('4YCgix4J1K9uEm');
   return token !== null;
