@@ -15,8 +15,12 @@ constructor (private router: Router , private authService :AuthService ,private 
 onDelivarig:any=''
 
 goTo(param:any) {
-this.router.navigate([param])
-
+if (param !='orders'){
+this.authService.updateStatus(param,this.onDelivarig.data.id).subscribe(res => {
+   console.log(res)
+})
+}
+ this.router.navigate(['orders'])
 // this.authService.updateStatus(param,this.dataArrayForApi[i].id).subscribe((res:any)=>{
 //   console.log(res);
 // },(err:any)=>{
@@ -30,7 +34,7 @@ ngOnInit():void{
   else{
     this.authService.getDataByStatus('onDelivering').subscribe((res:any)=>{
       this.onDelivarig=res
-      console.log(res)
+      // console.log(res)
     },(error:any)=>{
       console.log('this is error message',error)
     })

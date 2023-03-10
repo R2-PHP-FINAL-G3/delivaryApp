@@ -12,11 +12,12 @@ export class RoutingService {
 
   url:string='http://127.0.0.1:8000/api/'
 
-  ifMaintnableByURL(prop:string){
-    if(localStorage.getItem('data')==null){
-      this.router.navigate(['/login'])
-    }else{
-    this.router.navigate([prop])
+  routerLinkWithIsAuth(prop:string){
+    if(localStorage.getItem('4YCgix4J1K9uEm')!=null){
+     this.router.navigate([prop])
+
+    }else{ 
+          this.router.navigate(['/login'])
     }
   }
   hash(){

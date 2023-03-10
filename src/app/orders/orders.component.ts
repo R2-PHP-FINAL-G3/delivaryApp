@@ -57,7 +57,7 @@ getOrders(){
     this.dataArrayForApi=res.data
     this.allDataArrayForApi=res
     this.message=res.message
-    console.log("aaarrray",res);
+    // console.log("aaarrray",res);
     // this.dataArrayForApi=res.filter((a:any) => { return a.status == "waiting"})
     // console.log(this.dataArrayForApi)
 
@@ -67,8 +67,8 @@ getOrders(){
  
   this.laoding=false
   this.message=error.error.message
-  error.status==406?setTimeout(()=>this.router.navigate(['onDelivering']), 5000):''
-console.log('get all',error)
+  error.status==406?setTimeout(()=>this.router.navigate(['onDelivering']), 3000):''
+// console.log('get all',error)
 },
 
   )

@@ -1,33 +1,55 @@
 <!-- <app-header ></app-header> -->
 
-<h1 class="mb-5" >Rejects Orders</h1>
+<h1 class="mb-5">returned Orders</h1>
 
-<div class="card">
+<div class="card" *ngIf="respose!=''">
   <div class="row">
-      <div class="col-md-8 cart">
-          <div class="title">
-              <div class="row">
-                  <div class="col"><h4><b>Rejects</b></h4></div>
-                  <div class="col align-self-center text-right text-muted">3 items</div>
-              </div>
+    <div class="col-md-8 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>returned</b></h4>
           </div>
-          <div class="row border-top border-bottom" *ngFor="let api of respose">
-              <div class="row main align-items-center">
-                  <!-- <div class="col"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div> -->
-                  <div class="col">
-                    <div class="row text-muted">{{api?.city}}</div>
-                    <div class="row text-muted">{{api?.clientName}}</div>
-                    <div class="row text-muted">{{api?.clientPhone}}</div>
-                      <div class="row text-muted">{{api?.status}}</div>
-                    <div class="row">Cotton T-shirt</div>
-                  </div>
-
-                  <div class="col">&euro; {{api?.totalPrice}}  <span class=" h2 text-danger" > x</span></div>
-              </div>
-
+          <div class="col align-self-center text-right text-muted">3 items</div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom" *ngFor="let api of respose">
+        <div class="row main align-items-center">
+          <!-- <div class="col"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div> -->
+          <div class="col">
+            <div class="row text-muted">{{api?.city}}</div>
+            <div class="row text-muted">{{api?.clientName}}</div>
+            <div class="row text-muted">{{api?.clientPhone}}</div>
+            <div class="row text-muted">{{api?.status}}</div>
+            <div class="row">Cotton T-shirt</div>
           </div>
 
+          <div class="col">&euro; {{api?.totalPrice}} <span class=" h2 text-danger"> x</span></div>
+        </div>
+
+      </div>
+
+
+    </div>
 
   </div>
+</div>
+<!-- <app-header ></app-header> -->
 
+
+<div class="card" *ngIf="respose==''">
+  <div class="row">
+    <div class="col-md-8 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>{{errorMessage}}</b></h4>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
 </div>

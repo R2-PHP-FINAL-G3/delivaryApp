@@ -16,10 +16,10 @@ const routes: Routes = [
   ,
   {path:'profile', component: ProfileComponent}
   ,
-  {path:'accepts', component: AcceptsOrdersComponent}
+  {path:'delivered', component: AcceptsOrdersComponent}
 
   ,
-  {path:'accepts/:id', component: AcceptsOrdersComponent}
+  {path:'delivered/:id', component: AcceptsOrdersComponent}
   ,
   {path:'onDelivering', component: OnDeliverComponent}
 ,
@@ -28,9 +28,9 @@ const routes: Routes = [
   {path:'not-found', component: NotFoundComponent}
 
   ,
-  {path:'rejects', component: RejectsOrdersComponent}
+  {path:'returned', component: RejectsOrdersComponent}
   ,
-  {path:'rejects/:id', component: RejectsOrdersComponent}
+  {path:'returned/:id', component: RejectsOrdersComponent}
   ,
   {path:'login' , component: LoginComponent},
    {path:'**',redirectTo:'orders' , pathMatch:'full'}

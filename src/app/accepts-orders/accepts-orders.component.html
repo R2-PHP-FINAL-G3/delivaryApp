@@ -1,15 +1,17 @@
 <!-- <app-header ></app-header> -->
 
-<h1 class="mb-5">Accepts Orders</h1>
-
+<h1 class="mb-5">delivered Orders</h1>
+you are earned EGP : {{sumFeeses}} £E  <br /> 
+you will delivered {{dataApi.length}} orders
 <div class="card">
 
   <div class="row" *ngFor="let api of dataApi ; let i = index">
+
     <div class="col-md-8 cart">
       <div class="title">
         <div class="row">
           <div class="col">
-            <h4><b>Accepts</b></h4>
+            <h4><b>delivered</b></h4>
           </div>
           <div class="col align-self-center text-right text-muted">{{api.id}}items</div>
         </div>
@@ -32,7 +34,7 @@
           </div>
           <div class="col links">
 
-            <a class=" btn " (click)="goTo('on-delivering',i)">Start </a>
+            <!-- <a class=" btn " (click)="goTo('on-delivering',i)">Start </a> -->
           </div>
         </div>
       </div>

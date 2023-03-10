@@ -1,6 +1,6 @@
 <!-- <app-header ></app-header> -->
 
-<div class="box mt-5" *ngIf="onDelivarig!=''">
+<div class="box mt-5" *ngIf="onDelivarig.data!=null">
   <h1 class="mb-5"> {{onDelivarig.message}} On Delivering</h1>
 
 <div class="row">
@@ -20,8 +20,8 @@
     <p class="card-text">orderDate: {{onDelivarig?.data.orderDate}}</p>
 
   
-    <a  (click)="goTo('orders')" class="btn btn-primary m-2">Reach</a>
-    <a (click)="goTo('orders')" class="btn btn-danger m-2">Not Reach</a>
+    <a  (click)="goTo('delivered')" class="btn btn-primary m-2">delivered</a>
+    <a (click)="goTo('returned')" class="btn btn-danger m-2">returned</a>
   </div>
   <div class="back-to-shop btn" (click)="goTo('orders')"><a>&leftarrow;</a><span class="text-muted">Back to
     Orders</span></div>
@@ -30,7 +30,7 @@
 </div>
 </div>
 
-<div class="box mt-5" *ngIf="onDelivarig==''">
-  <h1 class="mb-5" (click)="goTo('orders')"> Go back and choose the nearest order </h1>
+<div class="box mt-5" *ngIf="onDelivarig.data==null">
+  <a class="mb-5 btn" (click)="goTo('orders')">You did not choose any order go back and choose the nearest order </a>
 
 </div>

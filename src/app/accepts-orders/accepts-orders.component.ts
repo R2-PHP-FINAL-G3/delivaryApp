@@ -12,7 +12,10 @@ import { AuthService } from '../auth/auth.service';
 })
 export class AcceptsOrdersComponent {
   val:any[]=[];
+
   currentArrayOfData: Order | undefined;
+  arrayFeeses: any;
+  sumFeeses=0
 constructor(private router: Router , private service:AllOrdersService,private activatedRoute :ActivatedRoute , private localStorageService:LocalStorageService, private routing:RoutingService , private authService :AuthService){}
 @Input() dataArrayForApi:Order[]=[
   {
@@ -50,14 +53,16 @@ goTo(prop:any,i:any){
   }
 }
 backTo(prop:any){
-this.routing.ifMaintnableByURL(prop)
+this.routing.routerLinkWithIsAuth(prop)
   // this.router.navigate([prop])
 
 }
 /// api data from service accepts orders
 getOrders(){
-this.service.getAllOrders().subscribe((res:any) => {
-this.dataArrayForApi=res
+this.authService.getDataByStatus('delivered').subscribe((res:any) => {
+this.dataArrayForApi=res.data
+this.arrayFeeses=res.data.map((res:any) => this.sumFeeses+=res.id)
+console.log(this.arrayFeeses)
 /// to check if id is an exest within or you wont all orsers accepts from api
 if(this.activatedRoute.snapshot.paramMap.get('id')){
 this.currentArrayOfData= this.dataArrayForApi.find(i => i.id==(this.activatedRoute.snapshot.paramMap.get('id')||1))
