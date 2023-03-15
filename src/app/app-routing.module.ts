@@ -2,38 +2,37 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OrdersComponent } from './orders/orders.component';
 import { AcceptsOrdersComponent } from './accepts-orders/accepts-orders.component';
-import {RejectsOrdersComponent} from './rejects-orders/rejects-orders.component';
+import { RejectsOrdersComponent } from './rejects-orders/rejects-orders.component';
 import { LoginComponent } from './login/login.component';
 import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { AuthGuardGuard } from './shared/guard/canActivate/auth-guard.guard';
+import { LayoutComponent } from './layout/layout.component';
+import { AuthGuard } from "./shared/guard/canActivateChild/auth/auth.guard"
+import { AuthLoginGuard } from './shared/guard/canActivate/auth-login.guard';
 const routes: Routes = [
 
-  {path:'',redirectTo:"orders", pathMatch:'full'},
+  {
+    path: '', component: LayoutComponent, children: [
+      { path: '', redirectTo: 'orders', pathMatch: 'full' },
+      { path: 'orders', title: 'wating orders', component: OrdersComponent },
 
-  {path:'orders', component: OrdersComponent}
-  ,
-  {path:'profile', component: ProfileComponent}
-  ,
-  {path:'delivered', component: AcceptsOrdersComponent}
+      { path: 'profile', title: 'profile', component: ProfileComponent },
+      { path: 'delivered', title: 'delivared', component: AcceptsOrdersComponent }
 
-  ,
-  {path:'delivered/:id', component: AcceptsOrdersComponent}
-  ,
-  {path:'onDelivering', component: OnDeliverComponent}
-,
-  {path:'onDelivering/:id', component: OnDeliverComponent}
-  ,
-  {path:'not-found', component: NotFoundComponent}
+      ,
+      { path: 'onDelivering', title: 'onDelivering', component: OnDeliverComponent }
+      , { path: 'not-found', component: NotFoundComponent }
 
-  ,
-  {path:'returned', component: RejectsOrdersComponent}
-  ,
-  {path:'returned/:id', component: RejectsOrdersComponent}
-  ,
-  {path:'login' , component: LoginComponent},
-   {path:'**',redirectTo:'orders' , pathMatch:'full'}
+      ,
+      { path: 'returned', title: 'returned', component: RejectsOrdersComponent }
+      ,
+    ] , canActivate: [AuthGuard]
+  },
+
+  { path: 'login', title: 'login', component: LoginComponent,canActivate:[AuthLoginGuard] },
+  { path: '**', redirectTo: 'orders', pathMatch: 'full' }
 
 ];
 @NgModule({

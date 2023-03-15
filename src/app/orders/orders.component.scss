@@ -2,3 +2,198 @@
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.19);
 
 }
+///////////////////////////////////////////////////
+/// 
+:root {
+  --color0: hsl(217, 54%, 11%);
+  --color1: hsl(215, 51%, 70%);
+  --color2: hsl(178, 100%, 50%);
+  --color2Trans: hsl(178, 100%, 50%, 0.5);
+  --color3: hsl(216, 50%, 16%);
+  --color4: hsl(215, 32%, 27%);
+  --color5: hsl(0, 0%, 100%);
+}
+
+/* Reset Default Settings */
+
+
+body {
+  background-color: var(--color0);
+  min-height: 100vh;
+  padding: 0 10px;
+  font-family: 'Outfit', sans-serif;
+
+  /* Flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--color3);
+  min-width: 300px;
+  max-width: 340px;
+  padding: 20px;
+  border-radius: 15px;
+}
+@media (max-width: 376px) {
+  .card {
+      transform: scale(0.9);
+      min-width: auto;
+  }
+}
+@media (max-width: 321px) {
+  .card {
+      transform: scale(0.75);
+      min-width: auto;
+  }
+}
+
+.card__imgContainer {
+  width: 300px;
+  height: 300px;
+  border-radius: inherit;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__imgContainer:hover {
+  cursor: pointer;
+}
+
+.card__imgOverlay {
+  background-color: var(--color2Trans);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  visibility: hidden;
+  
+  /* Flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__imgContainer:hover .card__imgOverlay {
+  visibility: visible;
+}
+
+.card__imgContainer:active .card__imgOverlay .card__imgOverlayViewIcon {
+  transform: scale(0.90);
+}
+
+.card__img {
+  max-width: 100%;
+  border-radius: inherit;
+}
+
+.card__title {
+  display: block;
+  color: var(--color5);
+  width: fit-content;
+  margin: 20px 0 15px;
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card__title:hover {
+  color: var(--color2);
+}
+
+.card__title:active {
+  text-decoration: underline;
+}
+
+.card__desc {
+  color: var(--color1);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.card__info {
+  margin: 20px 0 0;
+
+  /* Flex */
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__ethValue {
+  color: var(--color2);
+
+  /* Flex */
+  display: flex;
+  align-items: center;
+}
+
+.card__ethValueIcon {
+
+}
+
+.card__ethValueText {
+  margin-left: 8px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+.card__date {
+  color: var(--color1);
+
+  /* Flex */
+  display: flex;
+  align-items: center;
+}
+
+.card__dateIcon {
+
+}
+
+.card__dateText {
+  margin-left: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.card__separator {
+  display: block;
+  background-color: var(--color4);
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+  border-radius: inherit;
+}
+
+.card__creator {
+  color: var(--color1);
+  
+  /* Flex */
+  display: flex;
+  align-items: center;
+}
+
+.card__creatorImg {
+  width: 30px;
+  height: 30px;
+  outline: solid 2px var(--color5);
+  border-radius: 50%;
+}
+
+.card__creatorName {
+  margin-left: 12px;
+  font-weight: 300;
+}
+
+.card__creatorLink {
+  color: var(--color5);
+  text-decoration: none;
+}
+
+.card__creatorLink:hover {
+  color: var(--color2);    
+}
+
+.card__creatorLink:active {
+  text-decoration: underline;
+}

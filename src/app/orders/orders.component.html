@@ -1,6 +1,6 @@
 <!-- <app-header ></app-header> -->
 
-<div class="box mt-5" >
+<!-- <div class="box mt-5"> -->
 
   <!-- <div class="my-2 w-25">
     <label for="" class="my-1">Categories :</label>
@@ -11,12 +11,14 @@
       <option value="4">option4</option>
     </select>
   </div> -->
-  <h1 class="mb-5">{{message}}</h1>
+  <h1 class="mb-5">{{message}} {{+dataArrayForApi.length>0? dataArrayForApi.length+" items":""}}</h1>
   <!-- <select class="selectpicker" *ngIf="let sortCity of dataArrayForApi ">
     <option >
       <p> {{sortCity}}</p>
     </option>
   </select> -->
+  <!-- /////////////////////////////////////// -->
+  <!-- <p class="h1 text-danger" *ngIf="dataArrayForApi.length==0">We dont have any orders right now </p>
   <div class="row "*ngIf="(!laoding)&&dataArrayForApi!=''">
     <div class="col-md-3  col-sm-12 box mb-4"   *ngFor="let api of dataArrayForApi ; let i = index">
       <div class="card card-view  " style="height: 40rem;">
@@ -31,7 +33,7 @@
             <p class="card-text">Price: ${{api.delivaryFees}}</p>
             <p class="card-text">invoiceCode: ${{api.invoiceCode}}</p>
             <a (click)="goTo('onDelivering',i)" class="btn btn-primary m-2">Start</a>
-          <a (click)="goTo('rejects',i)" class="btn btn-danger m-2">Reject</a>
+          <a (click)="goTo('reject',i)" class="btn btn-danger m-2">return</a>
         </div>
       </div>
     </div>
@@ -41,8 +43,9 @@
 </div>
 <div class="text-center w-100" *ngIf="laoding||(dataArrayForApi=='')">
     <app-spinner></app-spinner>
-  </div>
-<!-- <div class="row">
+  </div> -->
+  <!-- /////////////////////////////////////////////////////// -->
+  <!-- <div class="row">
 <div class="col-3 " *ngFor="let api of dataArrayForApi">
 <div class="d-flex ">
   {{api.id}}
@@ -50,3 +53,76 @@
 </div>
 </div>
 </div> -->
+  <!-- ///////////////////////////////////////////////////////////////// -->
+  <p class="h1 text-danger" *ngIf="((dataArrayForApi.length==0)&&(message!='you are busy'))&&((!laoding)&&(dataArrayForApi!=''))">We dont have any orders right
+    now </p>
+  <div class="row d-flex justify-content-around " *ngIf="(!laoding)&&(dataArrayForApi!='')">
+
+    <div class='card mb-4' *ngFor="let api of dataArrayForApi ; let i = index">
+      <div class='card__imgContainer'>
+        <span class='card__imgOverlay'>
+          <svg class='card__imgOverlayViewIcon' width='48' height='48' xmlns='http://www.w3.org/2000/svg'>
+            <g fill='none' fill-rule='evenodd'>
+              <path d='M0 0h48v48H0z' />
+              <path
+                d='M24 9C14 9 5.46 15.22 2 24c3.46 8.78 12 15 22 15 10.01 0 18.54-6.22 22-15-3.46-8.78-11.99-15-22-15Zm0 25c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10-4.48 10-10 10Zm0-16c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6Z'
+                fill='#FFF' fill-rule='nonzero' />
+            </g>
+          </svg>
+        </span>
+        <iframe class="card__img "
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54695.308269751664!2d31.41785916139067!3d31.04138142169491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79db7a9053547%3A0xf8dab3bbed766c97!2z2KfZhNmF2YbYtdmI2LHYqdiMINin2YTZhdmG2LXZiNix2KkgKNmC2LPZhSAyKdiMINin2YTZhdmG2LXZiNix2KnYjCDYp9mE2K_ZgtmH2YTZitip2Iwg2YXYtdix!5e0!3m2!1sar!2sus!4v1677456518528!5m2!1sar!2sus"
+          width='300px' height='300px' style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class='card__title'>City: {{api.city}} <br> Invoice Code: {{api.invoiceCode}}</p>
+      <p class='card__desc'>Delivary Fees: <fa-icon [icon]="FontAwesome.faMoneyBill1Wave"></fa-icon>
+        {{api.delivaryFees}}.</p>
+      <p class='card__desc'>Total Price: <fa-icon [icon]="FontAwesome.faMoneyBill1Wave"></fa-icon> {{api.totalPrice}}.
+      </p>
+      <a href="tel:{{api.clientPhone}}" class='card__desc text-decoration-none d-block'>Client Phone: <fa-icon
+          [icon]="FontAwesome.faPhone"></fa-icon> {{api.clientPhone}}.</a>
+      <p class='card__desc'>Is Paid: {{api.isPaid?'Yes':'no'}}</p>
+      <div class='card__info'>
+        <div class='card__ethValue'>
+          <svg class='card__ethValueIcon' width='11' height='18' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M11 10.216 5.5 18 0 10.216l5.5 3.263 5.5-3.262ZM5.5 0l5.496 9.169L5.5 12.43 0 9.17 5.5 0Z'
+              fill='#00FFF8' />
+          </svg>
+          <p class='card__ethValueText text-danger ' (click)="goTo('onDelivering',i)"><fa-icon
+              [icon]="FontAwesome.faTrash"></fa-icon><span>Reject</span></p>
+        </div>
+        <div class='card__date'>
+          <svg class='card__dateIcon' width='17' height='17' xmlns='http://www.w3.org/2000/svg'>
+            <path
+              d='M8.305 2.007a6.667 6.667 0 1 0 0 13.334 6.667 6.667 0 0 0 0-13.334Zm2.667 7.334H8.305a.667.667 0 0 1-.667-.667V6.007a.667.667 0 0 1 1.334 0v2h2a.667.667 0 0 1 0 1.334Z'
+              fill='#8BACD9' />
+          </svg>
+          <p class='card__dateText btn  text-success' (click)="goTo('onDelivering',i)"><fa-icon
+              [icon]="FontAwesome.faPenToSquare"></fa-icon><span>start</span></p>
+        </div>
+      </div>
+      <span class='card__separator'></span>
+      <div class='card__creator'>
+        <!-- <img src='https://raw.githubusercontent.com/mohammadjarabah/codepen-assets/main/pens/dyjrRrX/images/avatar.jpg' alt='Creator Avatar' class='card__creatorImg'> -->
+        <!-- <p class='card__creatorName'>
+      Client Name:
+      <a href='#emptyLink' class='card__creatorLink'></a>
+    </p> -->
+        <details>
+          <summary class='card__creatorName text-success'>Client Name: {{api.clientName}} </summary>
+          <ul>
+            <li>Apartment Number: {{api.apartmentNumber}}</li>
+            <li>Building Number: {{api.buildingNumber}}</li>
+            <li>Street:{{api.street}}</li>
+            <li>Status: {{api.status}}</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </div>
+    <div class="text-center w-100" *ngIf="laoding||(dataArrayForApi=='')" >
+      <app-spinner></app-spinner>
+      <!-- <app-byscal-spinner></app-byscal-spinner> -->
+    </div>
+

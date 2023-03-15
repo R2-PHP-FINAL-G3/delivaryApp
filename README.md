@@ -28,3 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 (1.11.11)
 add motorcycle as aspinner 
 add a status  on delivaring 
+(1.12.11)
+add avrage earned mony 
+enhanced sum logics 

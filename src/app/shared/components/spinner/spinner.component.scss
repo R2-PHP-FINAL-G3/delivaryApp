@@ -56,7 +56,7 @@
   .bike-body .cover {
     width: 75px;
     height: 30px;
-    background: #F4492C;
+    background: green;
     position: absolute;
     top: 55px;
     left: 105px;
@@ -86,7 +86,7 @@
       .bike-body .motor .part-1 .part-1-top {
         width: 40px;
         height: 20px;
-        background: linear-gradient(135deg, transparent 10px, #F5492C 0);
+        background: linear-gradient(135deg, transparent 10px, green 0);
         border-radius: 0px 5px 5px 5px;
         box-shadow: inset -2px -2px 0px 1px rgba(0, 0, 0, 0.2); }
       .bike-body .motor .part-1 .part-1-bottom {
@@ -230,7 +230,7 @@
     width: 50px;
     height: 50px;
     border: 10px solid transparent;
-    border-top-color: #F5492C;
+    border-top-color: green;
     border-radius: 50%;
     background: transparent;
     position: relative;

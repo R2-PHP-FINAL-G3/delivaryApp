@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './shared/auth/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,13 +12,13 @@ export class AppComponent {
   title = 'dilevary';
   boolDesplayed: boolean=false;
   ngOnInit():void{
-    if(!this.authService.isAuthenticated()){
-      this.boolDesplayed=false;
-      this.router.navigate(['login'])
-    }else{
-      this.boolDesplayed=true;
-    }
- 
+    // if(!this.authService.isAuthenticated()){
+    //   this.boolDesplayed=false;
+    //   this.router.navigate(['login'])
+    // }else{
+    //   this.boolDesplayed=true;
+    // }
+
   }
 
 }

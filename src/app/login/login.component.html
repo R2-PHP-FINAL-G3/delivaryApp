@@ -1,18 +1,5 @@
-
 <!--
-<i class="fas fa-heart"></i>
-<i class="fas fa-car"></i>
-<i class="fas fa-street-view"></i>
-<i class="fas fa-user-plus"></i>
-<i class="fas fa-user-alt-slash"></i>
-<i class="fas fa-thumbs-up"></i>
-<i class="fas fa-thumbs-down"></i>
-<i class="fas fa-map-marker-alt"></i>
-<i class="fas fa-wallet"></i>
-<i class="fas fa-redo"></i>
-<i class="fas fa-unlock"></i>
-<i class="fas fa-sign-out-alt"></i>
-<i class="fas fa-sign-in"></i> -->
+
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -21,24 +8,7 @@
           <div class="card-body p-5 text-center" >
 
 
-<!--
 
- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <label>
-    Name:
-    <input type="text" formControlName="name">
-  </label>
-  <p>{{errorUserName}}</p>
-  <br>
-  <label>
-    password:
-    <input type="password" formControlName="password">
-  </label>
-  <p>{{errorPass}}</p>
-  <br>
-  <button type="submit" class="btn" ><i class="fas fa-unlock "></i>
-  </button>
-</form> -->
 
 <form class="form-signin" [formGroup]='loginForm' (submit)="login()">
   <h1 class="h3 mb-3 fw-normal">Login</h1>
@@ -56,39 +26,58 @@
   <p *ngIf="message" class="alert alert-danger alert-dismissible fade show">{{message}}</p>
 </form>
 
-            <!-- <form class="mb-md-5 mt-md-4 pb-5"[formGroup]="loginForm" (ngSubmit)="onSubmit()" >
-
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-              <p class="text-success-50 mb-5">Please enter your login and password!</p>
-
-              <div class="form-outline form-success mb-4">
-                <input type="text" id="userName" class="form-control" formControlName="userName" placeholder="Enter UserName">
-                <span class="text-danger" *ngIf="(loginData['userName'].touched || submitted) && loginData['userName'].errors?.['required']">
-                   UserName is required
-                </span>
-                <span class="text-danger" *ngIf="loginData['userName'].touched && loginData['userName'].errors?.['email']">
-                   Enter a valid user name address
-                </span>
-              </div>
-              <div class="form-outline form-success mb-4">
-                <input type="password" id="passWord" class="form-control" formControlName="passWord" placeholder="Enter Password">
-                <span class="text-danger" *ngIf="(loginData['passWord'].touched || submitted) && loginData['passWord'].errors?.['required']">
-                  Password is required
-                </span>
-                <span class="text-danger" *ngIf="(submitted && loginData['passWord'].hasError('required')) || loginData['passWord'].touched && loginData['passWord'].errors?.['invalidPassword']">
-                  Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
-                  letter and 1 number
-                </span>
-              </div>
-              <button class="btn  btn-md px-5 form-control btn-success" type="submit">Login</button>
-            </form> -->
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-</section>
+</section> -->
 
 
+<!-- ////////////////////////////////// -->
+
+<!-- <div class="section"> -->
+  <!-- <div class="container"> -->
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class=" pb-5 pt-5 pt-sm-2 text-center">
+          <h6 class="mb-0 pb-3"><span>Log In </span><span>About Us</span></h6>
+          <p *ngIf="message" class="alert alert-danger alert-dismissible fade show">{{message}}</p>
+
+                <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                <label for="reg-log" class="togile-login-about"></label>
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="center-wrap">
+                  <form class=" text-center"  [formGroup]='loginForm' (submit)="login()">
+                    <h4 class="mb-4 pb-3">Log In</h4>
+                    <div class="form-group">
+                      <input type="email" formControlName="username" class="form-style" placeholder="Your Username" id="logemail" autocomplete="off">
+                      <i class="input-icon uil uil-at"></i>
+                    </div>
+                    <div class="form-group mt-2">
+                      <input type="password" class="form-control" id="floatingPassword"  formControlName="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <button href="#" type="submit" class="btn mt-4" [ngStyle]="{'opacity':loginForm.valid?' 1':'.3'}" type="submit">login</button>
+                                  <!-- <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p> -->
+
+                    </form>
+                    </div>
+                  </div>
+              <div class="card-back">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">We Are A Big Company</h4>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- </div> -->
+<!-- </div> -->

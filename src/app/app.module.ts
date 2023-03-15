@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AcceptsOrdersComponent } from './accepts-orders/accepts-orders.component';
 import { RejectsOrdersComponent } from './rejects-orders/rejects-orders.component';
@@ -12,11 +12,14 @@ import { LoginComponent } from './login/login.component';
 import { OnDeliverComponent } from './on-deliver/on-deliver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { SpinnerComponent } from './shard/spinner/spinner.component';
-import { AuthService } from './auth/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { AuthService } from './shared/auth/services/auth.service';
 import { ProfileComponent } from './profile/profile.component';
-
+import * as compression from 'compression';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LayoutComponent } from './layout/layout.component';
+import { ByscalSpinnerComponent } from './shared/components/byscal-spinner/byscal-spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,18 +31,21 @@ import { ProfileComponent } from './profile/profile.component';
     OnDeliverComponent,
     NotFoundComponent,
     SpinnerComponent,
-    ProfileComponent
+    ProfileComponent,
+    LayoutComponent,
+    ByscalSpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-RouterModule,
-BrowserModule,
-HttpClientModule,
-ReactiveFormsModule
+    RouterModule,
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
-    AuthService
+
   ],
   bootstrap: [AppComponent]
 })

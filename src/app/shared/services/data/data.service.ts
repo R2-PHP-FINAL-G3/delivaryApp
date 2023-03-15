@@ -4,19 +4,16 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class RoutingService {
+export class DataService {
   hashing: string ='test';
 
   constructor(private router: Router) { }
-//
-
-  url:string='http://127.0.0.1:8000/api/'
 
   routerLinkWithIsAuth(prop:string){
     if(localStorage.getItem('4YCgix4J1K9uEm')!=null){
      this.router.navigate([prop])
 
-    }else{ 
+    }else{
           this.router.navigate(['/login'])
     }
   }
@@ -35,5 +32,4 @@ export class RoutingService {
       }
       return result;
   }
-
 }
