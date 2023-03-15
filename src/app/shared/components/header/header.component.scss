@@ -16,15 +16,17 @@ nav {
       color: var(--btn-color);
       // padding: .3rem;
       border-radius: 10px;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       &:hover{
         // color: white!important;
         // background-color: var(--btn-color-danger);
-        transform: scale(1.1);
       }
     }
   }
+  .scal{
+    transform: scale(1.5);
 
+  }
   .profile{
 
       border: 1px solid var(--btn-color);

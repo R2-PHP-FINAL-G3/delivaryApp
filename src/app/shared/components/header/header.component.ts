@@ -26,17 +26,20 @@ export class HeaderComponent {
   faLock : faLock
   }
   boolDesplayed: boolean = false;
+  nav: string ='orders';
   constructor(private router: Router, private authService: AuthService) { }
   goTo(param: string) {
     this.router.navigate([param]);
+    this.nav=param
   }
 
    logout() {
-  this.authService.logout().subscribe((res:any) => {  
+  this.authService.logout().subscribe((res:any) => {
+    // this.nav='orders'
     console.log('res',res)
 
 
-  },(err:any)=>{   
+  },(err:any)=>{
 
 
     console.log('err',err)
@@ -56,5 +59,7 @@ export class HeaderComponent {
 
 
   }
-
+// linksStyle():void{
+  
+// }
 }

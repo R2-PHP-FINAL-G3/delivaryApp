@@ -39,15 +39,16 @@ a{
     // padding: .3rem;
     border-radius: 10px;
     font-size: 1.5rem;
-
+    &>*{
+      cursor: pointer;
+    }
     // width: 4rem;
   }
 
-  *:hover {
-    // background-color: var(--btn-color);
-    // color: white;
-    transform: scale(1.1);
-  }
+  // *:hover {
+  //   // background-color: var(--btn-color);
+  //   // color: white;
+  // }
 }
 .width3rem{
   width: 3.7rem;

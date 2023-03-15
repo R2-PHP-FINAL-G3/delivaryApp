@@ -11,6 +11,7 @@ import { AuthGuardGuard } from './shared/guard/canActivate/auth-guard.guard';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthGuard } from "./shared/guard/canActivateChild/auth/auth.guard"
 import { AuthLoginGuard } from './shared/guard/canActivate/auth-login.guard';
+import { AboutComponent } from './about/about.component';
 const routes: Routes = [
 
   {
@@ -28,6 +29,8 @@ const routes: Routes = [
       ,
       { path: 'returned', title: 'returned', component: RejectsOrdersComponent }
       ,
+      { path: 'about', title: 'About Us', component: AboutComponent }
+
     ] , canActivate: [AuthGuard]
   },
 

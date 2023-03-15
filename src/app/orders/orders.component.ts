@@ -22,6 +22,7 @@ export class OrdersComponent implements OnInit {
   faPhone:faPhone,
   faMoneyBill1Wave:faMoneyBill1Wave,
  }
+
   constructor(private router: Router, private service: OrdersService
     , private authService: AuthService, private userService: UserService) { }
   laoding: boolean = true;
@@ -85,5 +86,12 @@ dataArrayForApi: any = ''
     )
 
   }
+  // pusher(){
+  //   const pusher = new Pusher('APP_KEY', {
+  //     cluster: 'CLUSTER',
+  //     encrypted: true,
+  //   });
+
+  // }
 
 }

@@ -8,6 +8,7 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {faMoneyBill} from '@fortawesome/free-solid-svg-icons'
 import {faMotorcycle} from '@fortawesome/free-solid-svg-icons'
 import {faWallet} from '@fortawesome/free-solid-svg-icons'
+import {faHomeAlt} from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -21,6 +22,7 @@ export class ProfileComponent {
     faMoneyBill:faMoneyBill,
     faMotorcycle:faMotorcycle,
     faWallet:faWallet,
+    faHomeAlt:faHomeAlt
   }
   dataUpdate!: FormGroup;
 

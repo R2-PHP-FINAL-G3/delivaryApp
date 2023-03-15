@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 mt-3 rounded" >
   <div class="container-fluid">
     <div class="links">
-      <a (click)="goTo('orders')" class="nav-item " routerLinkActive="">      <fa-icon  [icon]="FontAwesome.faHome"></fa-icon>
+      <a (click)="goTo('orders')" [ngClass]="[nav=='orders'?'scal':'']" routerLinkActive="">      <fa-icon  [icon]="FontAwesome.faHome"></fa-icon>
       </a>
-      <a (click)="goTo('delivered')" routerLinkActive="">      <fa-icon [icon]="FontAwesome.faThumbsUp"></fa-icon>      </a>
-      <a (click)="goTo('onDelivering')">      <fa-icon [icon]="FontAwesome.faStreetView"></fa-icon>      </a>
-      <a (click)="goTo('returned')">       <fa-icon [icon]="FontAwesome.faThumbsDown"></fa-icon></a>
-      <a (click)="goTo('profile')">       <fa-icon [icon]="FontAwesome.faUser"></fa-icon></a>
+      <a (click)="goTo('delivered')" [ngClass]="[nav=='delivered'?'scal':'']"  [routerLinkActive]="['is-active']">      <fa-icon [icon]="FontAwesome.faThumbsUp"></fa-icon>      </a>
+      <a (click)="goTo('onDelivering')" [ngClass]="[nav=='onDelivering'?'scal':'']">      <fa-icon [icon]="FontAwesome.faStreetView"></fa-icon>      </a>
+      <a (click)="goTo('returned')" [ngClass]="[nav=='returned'?'scal':'']">       <fa-icon [icon]="FontAwesome.faThumbsDown"></fa-icon></a>
+      <a (click)="goTo('profile')" [ngClass]="[nav=='profile'?'scal':'']">       <fa-icon [icon]="FontAwesome.faUser"></fa-icon></a>
 
     </div> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

@@ -28,7 +28,7 @@
               <p class="card-text">orderDate: {{onDelivarig?.data.orderDate}}</p>
             </ul>
           </details>
-        
+
           <div class="pie"></div>
 
 
@@ -39,10 +39,31 @@
             Orders</span></div>
       </div>
     </div>
-    
+
   </div>
 </div>
 
-<div class="box mt-5" *ngIf="onDelivarig.data==null">
+<!-- <div class="box mt-5" *ngIf="onDelivarig.data==null">
   <a class="mb-5 btn" (click)="goTo('orders')">You did not choose any order go back and choose the nearest order </a>
+</div> -->
+<!-- //////////////////////////////////////////////////////////// -->
+<div id="container" *ngIf="onDelivarig.data==null">
+
+  <div id="error-box" class="w-75" >
+    <div class="dot"></div>
+    <div class="dot two"></div>
+    <div class="face2">
+      <div class="eye"></div>
+      <div class="eye right"></div>
+      <div class="mouth sad"></div>
+    </div>
+    <div class="shadow move"></div>
+
+    <div class="message"><h1 class="alert">Error! You did not choose any order go back and choose the nearest order</h1></div>
+    <button class="button-box" (click)="goTo('orders')" ><h1 class="red">Back To Orders</h1></button>
+  </div>
 </div>
+<!--
+<footer>
+  <p>made by <a href="https://codepen.io/juliepark"> julie</a> ♡
+</footer> -->

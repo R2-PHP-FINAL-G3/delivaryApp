@@ -20,6 +20,7 @@ import * as compression from 'compression';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LayoutComponent } from './layout/layout.component';
 import { ByscalSpinnerComponent } from './shared/components/byscal-spinner/byscal-spinner.component';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { ByscalSpinnerComponent } from './shared/components/byscal-spinner/bysca
     SpinnerComponent,
     ProfileComponent,
     LayoutComponent,
-    ByscalSpinnerComponent
+    ByscalSpinnerComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
