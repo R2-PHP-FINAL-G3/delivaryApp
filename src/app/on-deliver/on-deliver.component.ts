@@ -4,6 +4,7 @@ import { AuthService } from '../shared/auth/services/auth.service';
 import { OrdersService } from '../orders/services/orders.service';
 import { Order } from '../shared/interfaces/order';
 import { Waiting } from '../shared/interfaces/waiting';
+import {faPhone} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-on-deliver',
@@ -13,7 +14,7 @@ import { Waiting } from '../shared/interfaces/waiting';
 export class OnDeliverComponent {
   constructor(private router: Router, private authService: AuthService, private activatedRoute: ActivatedRoute, private service: OrdersService) { }
   onDelivarig: any = ''
-
+  faPhone=faPhone
   goTo(param: any) {
     if (param != 'orders') {
       this.authService.updateStatus(param, this.onDelivarig.data.id).subscribe(res => {

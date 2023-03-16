@@ -11,13 +11,13 @@ import { DataService } from '../shared/services/data/data.service';
 })
 export class AcceptsOrdersComponent {
   val: any[] = [];
-
+  laoding: boolean = false;
   currentArrayOfData: Order | undefined;
   arrayFeeses: any;
   sumFeeses = 0
   length_returned=Number( localStorage.getItem('length of returned'))
   constructor(private router: Router, private service: AllOrdersService, private activatedRoute: ActivatedRoute,  private dataService: DataService, private authService: AuthService) { }
-  @Input() dataArrayForApi: Order[] = [
+   dataArrayForApi: Order[] = [
     {
       "id": 1,
       "created_at": 'string',
@@ -38,11 +38,10 @@ export class AcceptsOrdersComponent {
       "clientName": "zaater",
       "clientPhone": "1234567890"
     }];
-  @Input() dataApi: any[] = [
-  ];
-  @Input()
+   dataApi: any=''
+
   // git data from local storage
-  @Input() dataFromlocalStorage: any[] = [];
+   dataFromlocalStorage: any[] = [];
   ///
   // goTo(prop: any, i: any) {
   //   if (localStorage.getItem('data') == null) {
@@ -59,7 +58,11 @@ export class AcceptsOrdersComponent {
   }
   /// api data from service accepts orders
   getOrders() {
+    this.laoding = true
+
     this.authService.getDataByStatus('delivered').subscribe((res: any) => {
+      this.laoding = false
+
       this.dataArrayForApi = res.data
       this.arrayFeeses = res.data.map((res: any) => this.sumFeeses +=parseInt(res.delivaryFees))
       localStorage.setItem('sumFeeses',JSON.stringify( this.sumFeeses))

@@ -2,7 +2,7 @@
 
 <h1 class="mb-3">Returned Orders</h1>
 <!-- <p>you are earned EGP : {{sumFeeses}} £E </p> -->
-<p>you are earned EGP : {{sumFeeses}} £E </p>
+<!-- <p>you are earned EGP : {{sumFeeses}} £E </p> -->
 
 <p>you will returned {{respose.length}} orders</p>
 
@@ -24,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr  *ngFor="let api of respose ; let i = index">
+    <tr class="border-danger border-1" *ngFor="let api of respose ; let i = index">
       <td scope="row" data-label="City">{{api.city}}</td>
       <td data-label="Invoice Code">{{api.invoiceCode}}</td>
       <td data-label="Delivary Fees">{{api.delivaryFees}}</td>

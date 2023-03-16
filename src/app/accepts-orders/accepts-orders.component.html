@@ -1,5 +1,5 @@
 <!-- <app-header ></app-header> -->
-
+<div *ngIf="!(laoding||(dataApi==''))">
 <h1 class="mb-3">delivered Orders</h1>
 <p>you are earned EGP : {{sumFeeses}} £E </p>
 <p>you will delivered : {{dataApi.length}} orders</p>
@@ -22,15 +22,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr  *ngFor="let api of dataApi ; let i = index">
-      <td scope="row" data-label="Name">{{api.city}}</td>
-      <td data-label="Title">{{api.invoiceCode}}</td>
+    <tr class="border-success border-1" *ngFor="let api of dataApi ; let i = index">
+      <td scope="row" data-label="City">{{api.city}}</td>
+      <td data-label="Delivary Fees">{{api.invoiceCode}}</td>
       <td data-label="Website">{{api.delivaryFees}}</td>
-      <td data-label="Role">{{api.totalPrice}}</td>
+      <td data-label="Total Price">{{api.totalPrice}}</td>
     </tr>
 
   </tbody>
 </table>
 
-
+</div>
+<div class="text-center w-100" *ngIf="laoding||(dataApi=='')" >
+  <app-spinner></app-spinner>
+</div>
 

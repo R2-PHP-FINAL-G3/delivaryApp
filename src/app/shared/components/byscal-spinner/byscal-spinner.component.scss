@@ -7,20 +7,20 @@
 	--trans-dur: 0.3s;
 	font-size: calc(16px + (32 - 16) * (100vw - 320px) / (2560 - 320));
 }
-body {
-	background-color: var(--bg);
-	color: var(--fg);
-	display: flex;
-	font: 1em/1.5 sans-serif;
-	height: 100vh;
-	transition:
-		background-color var(--trans-dur),
-		color var(--trans-dur);
-}
+// body {
+// 	background-color: var(--bg);
+// 	color: var(--fg);
+// 	display: flex;
+// 	font: 1em/1.5 sans-serif;
+// 	height: 100vh;
+// 	transition:
+// 		background-color var(--trans-dur),
+// 		color var(--trans-dur);
+// }
 .bike {
 	display: block;
-	margin: auto;
-	width: 16em;
+	// margin: auto;
+	width: 5em;
 	height: auto;
 }
 .bike__body,
