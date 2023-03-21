@@ -1,6 +1,6 @@
 <!-- <app-header ></app-header> -->
 
-<div class="box mt-5" *ngIf="onDelivarig.data!=null">
+<div class="box mt-5" *ngIf="(onDelivarig.data!=null)&&(!laoding)">
   <!-- <h1 class="mb-5"> {{onDelivarig.message}} On Delivering</h1> -->
 
   <div class="row">
@@ -47,7 +47,7 @@
   <a class="mb-5 btn" (click)="goTo('orders')">You did not choose any order go back and choose the nearest order </a>
 </div> -->
 <!-- //////////////////////////////////////////////////////////// -->
-<div id="container" *ngIf="onDelivarig.data==null">
+<div id="container" *ngIf="(onDelivarig.data==null)&&(!laoding)">
 
   <div id="error-box" class="w-75" >
     <div class="dot"></div>
@@ -67,3 +67,7 @@
 <footer>
   <p>made by <a href="https://codepen.io/juliepark"> julie</a> ♡
 </footer> -->
+<div class="text-center w-100" *ngIf="laoding" >
+  <app-spinner></app-spinner>
+  <!-- <app-byscal-spinner></app-byscal-spinner> -->
+</div>

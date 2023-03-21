@@ -15,6 +15,8 @@ export class OnDeliverComponent {
   constructor(private router: Router, private authService: AuthService, private activatedRoute: ActivatedRoute, private service: OrdersService) { }
   onDelivarig: any = ''
   faPhone=faPhone
+  laoding: boolean = true;
+
   goTo(param: any) {
     if (param != 'orders') {
       this.authService.updateStatus(param, this.onDelivarig.data.id).subscribe(res => {
@@ -29,10 +31,14 @@ export class OnDeliverComponent {
     // })
   }
   ngOnInit(): void {
+    this.laoding = true
     this.authService.getDataByStatus('onDelivering').subscribe((res: any) => {
+      this.laoding = false
       this.onDelivarig = res
-      // console.log(res)
+      console.log(res)
     }, (error: any) => {
+      this.laoding = false
+
       console.log('this is error message', error)
     })
     // "status",

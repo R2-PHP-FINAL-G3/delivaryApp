@@ -81,6 +81,8 @@ export class ProfileComponent {
     this.authService.deliveryUpdateData(dataUpdateValue.email, dataUpdateValue.motorCycleNumber, dataUpdateValue.password, dataUpdateValue.phone, dataUpdateValue.userName, this.id).subscribe(res => {
       // console.log(res)
       this.boolChangeData = false
+      localStorage.clear()
+      this.router.navigate(['login'])
     }, err => console.log(err))
 
   }
