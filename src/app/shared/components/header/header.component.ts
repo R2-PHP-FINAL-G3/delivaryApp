@@ -44,8 +44,11 @@ export class HeaderComponent {
 
     console.log('err',err)
   })
-  this.router.navigate(['login'])
-  localStorage.clear()
+   localStorage.removeItem('sumFeeses')
+
+  localStorage.removeItem('token');
+   this.router.navigate(['login'])
+
   }
   // isLogin(even:boolean){
   // this.bool=even
@@ -60,6 +63,6 @@ export class HeaderComponent {
 
   }
 // linksStyle():void{
-  
+
 // }
 }

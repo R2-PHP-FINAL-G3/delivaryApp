@@ -23,13 +23,14 @@ nav {
       }
     }
   }
-  .scal{
-    transform: scale(1.5);
+  .link-active{
+    &>:first-child{
+    // transform: scale(1.01);
+    color: green !important;
+    -webkit-text-stroke: 1.5px green !important;
+border-bottom:2px green solid ;
 
   }
-  .test{
-    color: red;
-    background-color: red;
   }
   .profile{
 

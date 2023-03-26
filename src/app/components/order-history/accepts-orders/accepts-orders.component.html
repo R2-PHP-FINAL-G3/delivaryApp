@@ -1,0 +1,43 @@
+<!-- <app-header ></app-header> -->
+<div *ngIf="!(laoding||(dataApi==''))">
+<h1 class="mb-3">delivered Orders</h1>
+<p>you are earned EGP : {{sumFeeses}} £E </p>
+<p>you will delivered : {{dataApi.length}} orders</p>
+
+<!-- ///////////////////////////////// -->
+<!-- <div class="progress  mt-3 mb-3">
+  <div class="progress-bar p-1" role="progressbar" [ngStyle]="{'width':(dataApi.length+length_returned)/(dataApi.length*100)}" [attr.aria-valuenow]="(dataApi.length+length_returned)/dataApi.length" aria-valuemin="0" aria-valuemax="100">average delivard {{(dataApi.length+length_returned)/dataApi.length}}</div>
+  <div class="progress-bar bg-success p-1" role="progressbar" [ngStyle]="{'width': '30%'}" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"> Total Mony {{sumFeeses}} £E</div>
+  <div class="progress-bar bg-info p-1" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+</div> -->
+<table >
+
+  <thead>
+
+    <tr class="thead bg-success">
+      <th scope="col">City</th>
+      <th scope="col">Invoice Code</th>
+      <th scope="col">Delivary Fees</th>
+      <th scope="col">Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border-success border-1" *ngFor="let api of dataApi ; let i = index">
+      <td scope="row" data-label="City">{{api.city}}</td>
+      <td data-label="Delivary Fees">{{api.invoiceCode}}</td>
+      <td data-label="Website">{{api.delivaryFees}}</td>
+      <td data-label="Total Price">{{api.totalPrice}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<!-- /////////////////////////////// -->
+
+<!-- ///////////////////////////////////////////// -->
+</div>
+<div class="text-center w-100" *ngIf="laoding||(dataApi=='')" >
+  <app-spinner></app-spinner>
+</div>
+

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dilevary": {
+    "test": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dilevary",
+            "outputPath": "dist/test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -59,13 +59,7 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -74,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dilevary:build:production"
+              "browserTarget": "test:build:production"
             },
             "development": {
-              "browserTarget": "dilevary:build:development"
+              "browserTarget": "test:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dilevary:build"
+            "browserTarget": "test:build"
           }
         },
         "test": {
@@ -111,6 +105,6 @@
     }
   },
   "cli": {
-    "analytics": "06f5441c-79f8-47bf-85a8-493291c3b215"
+    "analytics": "db0c60a9-4a32-416c-8961-e351dff181f5"
   }
 }
