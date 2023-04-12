@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 mt-3 rounded" >
+  <div class="container-fluid">
+    <div class="links">
+      <a routerLink="orders"  routerLinkActive="link-active">      <i [ngClass]="'fa fa-home border-text'"></i>
+      </a>
+      <a routerLink="delivered"   routerLinkActive="link-active">    <i [ngClass]="'fa fa-thumbs-up border-text'"></i>   </a>
+      <a routerLink="onDelivering"  routerLinkActive="link-active">    <i [ngClass]="'fa fa-street-view border-text'"></i>     </a>
+      <a routerLink="returned" routerLinkActive="link-active">      <i [ngClass]="'fa fa-thumbs-down border-text'"></i></a>
+      <a routerLink="profile"  routerLinkActive="link-active">    <i [ngClass]="'fa fa-user border-text'"></i></a>
+
+    </div> <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <li  routerLink="about" routerLinkActive="link-active" class="nav-item btn m-1 profile ico ">
+        <img src="../../favicon.ico" alt="your Photo">
+      </li>
+
+      <!-- <li class="nav-item btn m-1 profile nav-link">
+         Mohamed
+      </li> -->
+<!-- <p class="">bbbborder</p> -->
+      <a class="nav-item btn out logout" (click)="logout()"><i [ngClass]="'fa fa-lock border-text'"></i></a>
+
+
+
+    </div>
+  </div>
+</nav>
+<!-- Example single danger button -->
+
+<!-- <div class="container mb-5">
+  <input type="radio" name="s" id="home" checked>
+  <input type="radio" name="s" id="blog">
+  <input type="radio" name="s" id="code">
+  <input type="radio" name="s" id="help">
+  <input type="radio" name="s" id="about">
+  <nav>
+    <div class="slider"></div>
+    <label (click)="goTo('orders')" class="home" for="home">
+      <fa-icon  [icon]="faHome"></fa-icon>
+    </label>
+    <label class="blog" (click)="goTo('onDelivering')" for="blog">
+      <fa-icon [icon]="faStreetView"></fa-icon>
+    </label>
+    <label class="code" (click)="goTo('returned')" for="code">
+      <fa-icon [icon]="faThumbsDown"></fa-icon>
+    </label>
+    <label class="help" (click)="goTo('delivered')" for="help">
+      <fa-icon [icon]="faThumbsUp"></fa-icon>
+    </label>
+    <label (click)="goTo('profile')" class="about" for="about">
+      <fa-icon [icon]="faUser"></fa-icon>
+    </label>
+
+  </nav>
+</div> -->

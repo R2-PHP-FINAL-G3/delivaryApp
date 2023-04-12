@@ -1,16 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-*{
-  box-sizing: border-box;
+@import"https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap";
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
+
 li{
   list-style: none;
 }
 a{
-  list-style: none;
+  list-style: none ;
 }
 :root
 {
@@ -27,21 +31,49 @@ a{
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: space-around !important;
-  width: 70%;
+  width: 75%;
 
   * {
-    border: 1px solid var(--btn-color);
+    // border: 1px solid var(--btn-color);
     color: var(--btn-color);
-    padding: .3rem;
-    border-radius: 10px;
+    // padding: .3rem;
+    // border-radius: 10px;
+    font-size: 1.5rem;
+    &>*{
+      cursor: pointer;
+    }
     // width: 4rem;
   }
 
-  *:hover {
-    background-color: var(--btn-color);
-    color: white;
-  }
+  // *:hover {
+  //   // background-color: var(--btn-color);
+  //   // color: white;
+  // }
 }
 .width3rem{
   width: 3.7rem;
 }
+fa-icon {
+  color: green;
+
+  // &:hover {
+  //   transform: scale(1.1);
+
+  // }
+}
+
+.border-text{
+  // color: #f8f9fa;
+  -webkit-text-stroke: 1.5px black !important;
+  color: #F7F7F2;
+  font-size: 35px;
+  cursor: pointer;
+  border-bottom:2px inherit solid ;
+padding-bottom: 1rem;
+margin:0 ;
+  // text-shadow: -1px 1px 0 #000,
+  //               1px 1px 0 #000,
+  //              1px -1px 0 #000,
+  //             -1px -1px 0 #000;
+}
+//
